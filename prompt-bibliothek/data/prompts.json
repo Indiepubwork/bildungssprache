@@ -1,0 +1,915 @@
+{
+  "meta": {
+    "titel": "Promptbibliothek bildungssprache.net - Vollständig",
+    "quelle": "https://bildungssprache.net",
+    "erstellungsdatum": "2026-01-19",
+    "anzahl_prompts": 167,
+    "anzahl_artikel": 22,
+    "kategorien": 15
+  },
+  "prompts": [
+    {
+      "id": 1,
+      "titel": "Wörter im Kontext verstehen",
+      "prompt": "Erkläre mir das Wort »subtil« und gib mir fünf Beispielsätze aus verschiedenen Kontexten: Literaturkritik, Alltagssprache, Wissenschaft, Politik, Kunst.",
+      "kategorie": "Bildungssprache",
+      "artikel_id": 88251,
+      "artikel_titel": "Bildungssprache lernen mit KI – 10 Methoden"
+    },
+    {
+      "id": 2,
+      "titel": "Synonyme und Antonyme erfragen",
+      "prompt": "Gib mir Synonyme und Antonyme für »akribisch«. Erkläre kurz die Unterschiede zwischen den Synonymen.",
+      "kategorie": "Bildungssprache",
+      "artikel_id": 88251,
+      "artikel_titel": "Bildungssprache lernen mit KI – 10 Methoden"
+    },
+    {
+      "id": 3,
+      "titel": "Eigene Sätze korrigieren lassen",
+      "prompt": "Ich habe drei Sätze mit dem Wort »immanent« geschrieben. Prüfe, ob ich es korrekt verwende, und erkläre eventuelle Fehler:\n1. Die immanente Gefahr war allen bewusst.\n2. Seine Kritik war immanent und traf ins Schwarze.\n3. Das Problem ist dem System immanent.",
+      "kategorie": "Bildungssprache",
+      "artikel_id": 88251,
+      "artikel_titel": "Bildungssprache lernen mit KI – 10 Methoden"
+    },
+    {
+      "id": 4,
+      "titel": "Feine Unterschiede erklären",
+      "prompt": "Erkläre mir den Unterschied zwischen »disparat« und »divergent«. Wann verwende ich welches Wort?",
+      "kategorie": "Bildungssprache",
+      "artikel_id": 88251,
+      "artikel_titel": "Bildungssprache lernen mit KI – 10 Methoden"
+    },
+    {
+      "id": 5,
+      "titel": "Diskussionen mit Bildungssprache",
+      "prompt": "Lass uns über die Vor- und Nachteile von Globalisierung diskutieren. Ich werde versuchen, bildungssprachliche Wörter wie »ambivalent«, »interdependent« und »hegemoniell« einzubauen. Korrigiere mich, wenn ich sie falsch verwende.",
+      "kategorie": "Bildungssprache",
+      "artikel_id": 88251,
+      "artikel_titel": "Bildungssprache lernen mit KI – 10 Methoden"
+    },
+    {
+      "id": 6,
+      "titel": "Quizfragen zur Bildungssprache",
+      "prompt": "Erstelle mir zehn Quizfragen zu bildungssprachlichen Adjektiven. Mischung aus Bedeutungsfragen und Anwendungsfragen. Gib mir die Antworten erst, wenn ich fertig bin.",
+      "kategorie": "Bildungssprache",
+      "artikel_id": 88251,
+      "artikel_titel": "Bildungssprache lernen mit KI – 10 Methoden"
+    },
+    {
+      "id": 7,
+      "titel": "Etymologie erforschen",
+      "prompt": "Erkläre mir die Etymologie des Wortes »paradigmatisch«. Woher kommt es, und wie hat sich seine Bedeutung entwickelt?",
+      "kategorie": "Bildungssprache",
+      "artikel_id": 88251,
+      "artikel_titel": "Bildungssprache lernen mit KI – 10 Methoden"
+    },
+    {
+      "id": 8,
+      "titel": "Anwendungsbereiche erkunden",
+      "prompt": "In welchen Fachgebieten wird das Wort »normativ« häufig verwendet? Gibt es Bedeutungsunterschiede zwischen den Disziplinen?",
+      "kategorie": "Bildungssprache",
+      "artikel_id": 88251,
+      "artikel_titel": "Bildungssprache lernen mit KI – 10 Methoden"
+    },
+    {
+      "id": 9,
+      "titel": "Paraphrasieren üben",
+      "prompt": "Hier ist ein Satz: »Seine Argumentation war stringent und ließ keine Zweifel offen.« Formuliere ihn dreimal um: einmal mit einem Synonym für »stringent«, einmal in einfacherer Sprache, einmal für ein akademisches Publikum.",
+      "kategorie": "Bildungssprache",
+      "artikel_id": 88251,
+      "artikel_titel": "Bildungssprache lernen mit KI – 10 Methoden"
+    },
+    {
+      "id": 10,
+      "titel": "Rollenspiel Prüfungssituation",
+      "prompt": "Spiele mit mir eine mündliche Prüfung in Soziologie. Du bist der Professor, ich der Student. Stelle mir Fragen zu sozialer Ungleichheit. Achte darauf, ob ich bildungssprachliche Begriffe korrekt verwende, und gib mir am Ende Feedback.",
+      "kategorie": "Bildungssprache",
+      "artikel_id": 88251,
+      "artikel_titel": "Bildungssprache lernen mit KI – 10 Methoden"
+    },
+    {
+      "id": 11,
+      "titel": "Beschwerdebrief formell",
+      "prompt": "Schreibe einen formellen Beschwerdebrief.\n\nEmpfänger: [FIRMA/BEHÖRDE]\nMein Anliegen: [WAS IST PASSIERT, WAS WILL ICH]\nBisherige Kommunikation: [z.B. »zwei E-Mails ohne hilfreiche Antwort«]\nFrist: [DATUM, BIS WANN ICH EINE ANTWORT ERWARTE]\n\nTon: Höflich, aber bestimmt. Keine Drohungen, aber klar machen, dass ich weitere Schritte erwäge, falls nichts passiert. Format: DIN 5008 (deutscher Geschäftsbrief).",
+      "kategorie": "Briefe",
+      "artikel_id": 85908,
+      "artikel_titel": "Briefe auf Papier – und wie KI dir dabei helfen kann"
+    },
+    {
+      "id": 12,
+      "titel": "Letzte außergerichtliche Mahnung",
+      "prompt": "Schreibe eine letzte außergerichtliche Mahnung.\n\nSchuldner: [NAME/FIRMA]\nForderung: [BETRAG, GRUND]\nBisherige Mahnungen: [ANZAHL, DATEN]\nFrist: [DATUM]\n\nMache deutlich, dass nach Ablauf der Frist rechtliche Schritte folgen (Inkasso/Mahnbescheid). Sachlich, nicht aggressiv. Mit Platzhaltern für meine Daten.",
+      "kategorie": "Briefe",
+      "artikel_id": 85908,
+      "artikel_titel": "Briefe auf Papier – und wie KI dir dabei helfen kann"
+    },
+    {
+      "id": 13,
+      "titel": "Behördenschreiben",
+      "prompt": "Schreibe einen Brief an [BEHÖRDE, z.B. Finanzamt, Bürgeramt, Rentenversicherung].\n\nBetreff: [ANLIEGEN]\nMein Aktenzeichen/Steuernummer: [XXX – PLATZHALTER VERWENDEN]\nWas ich will: [KONKRET: Antrag, Widerspruch, Nachfrage, Fristverlängerung]\n\nFormell, korrekt, auf den Punkt. Keine Überflüssigkeiten. Mit Anlagen-Vermerk, falls nötig.",
+      "kategorie": "Briefe",
+      "artikel_id": 85908,
+      "artikel_titel": "Briefe auf Papier – und wie KI dir dabei helfen kann"
+    },
+    {
+      "id": 14,
+      "titel": "Kündigung schreiben",
+      "prompt": "Schreibe eine Kündigung für [VERTRAG: z.B. Fitnessstudio, Versicherung, Handyvertrag, Mietvertrag].\n\nAnbieter: [NAME]\nVertragsnummer: [XXX]\nKündigungsfrist laut Vertrag: [FRIST, falls bekannt]\nGewünschtes Ende: [DATUM oder »zum nächstmöglichen Termin«]\n\nBitte um schriftliche Bestätigung. Kurz und eindeutig.",
+      "kategorie": "Briefe",
+      "artikel_id": 85908,
+      "artikel_titel": "Briefe auf Papier – und wie KI dir dabei helfen kann"
+    },
+    {
+      "id": 15,
+      "titel": "Persönlicher Brief mit Formulierungshilfe",
+      "prompt": "Hilf mir, einen Brief an [PERSON] zu schreiben.\n\nAnlass: [z.B. Kondolenz, Danksagung, Entschuldigung, Glückwunsch]\nMeine Beziehung zur Person: [z.B. entfernte Verwandte, alter Freund, Nachbar]\nWas ich sagen will: [STICHPUNKTE]\nTon: [herzlich/förmlich/warm aber nicht kitschig]\n\nSchlage 2–3 Varianten vor. Ich wähle dann aus und passe an.",
+      "kategorie": "Briefe",
+      "artikel_id": 85908,
+      "artikel_titel": "Briefe auf Papier – und wie KI dir dabei helfen kann"
+    },
+    {
+      "id": 16,
+      "titel": "Kondolenzschreiben",
+      "prompt": "Schreibe ein Kondolenzschreiben.\n\nVerstorbene Person: [NAME]\nMeine Beziehung: [z.B. Arbeitskollegin des Sohnes, Nachbar, flüchtiger Bekannter]\nEmpfänger: [Witwe/Familie]\n\nAufrichtig, aber nicht übertrieben emotional. Keine Floskeln wie »in diesen schweren Stunden«. Kurz – ein Kondolenzbrief muss nicht lang sein.",
+      "kategorie": "Briefe",
+      "artikel_id": 85908,
+      "artikel_titel": "Briefe auf Papier – und wie KI dir dabei helfen kann"
+    },
+    {
+      "id": 17,
+      "titel": "Brief lesen und beantworten",
+      "prompt": "[BILD HOCHLADEN]\n\nLies diesen Brief und fasse zusammen:\n1. Wer schreibt?\n2. Was will die Person/Firma von mir?\n3. Gibt es Fristen oder Handlungsbedarf?\n4. Wie ist der Ton – freundlich, fordernd, bedrohlich?\n\nSchlage dann eine passende Antwort vor.",
+      "kategorie": "Briefe",
+      "artikel_id": 85908,
+      "artikel_titel": "Briefe auf Papier – und wie KI dir dabei helfen kann"
+    },
+    {
+      "id": 18,
+      "titel": "Textadventure Spielleiter",
+      "prompt": "Du bist der Spielleiter eines Textadventures. Setting: [z.B. mittelalterliche Burg, Raumstation, verlassenes Hotel]. Ich bin der Spieler.\n\nRegeln:\n- Beschreibe Orte atmosphärisch, aber kurz (3–5 Sätze)\n- Gib mir immer 2–4 Handlungsoptionen, aber akzeptiere auch eigene Ideen\n- Es gibt echte Gefahren – ich kann scheitern oder sterben\n- Führe ein unsichtbares Inventar\n- Baue Rätsel ein, die ich lösen muss\n\nStarte mit meinem Aufwachen an einem ungewöhnlichen Ort.",
+      "kategorie": "Spiele",
+      "artikel_id": 83280,
+      "artikel_titel": "Spielen mit KI – von Textadventures bis zu selbstgebauten Games"
+    },
+    {
+      "id": 19,
+      "titel": "20 Questions Spiel",
+      "prompt": "Lass uns 20 Questions spielen. Du denkst dir einen Begriff aus (Person, Tier, Gegenstand oder Ort). Ich stelle Ja/Nein-Fragen. Zähle meine Fragen mit. Nach 20 Fragen oder wenn ich richtig rate, löst du auf.\n\nKategorie für diese Runde: [z.B. berühmte Personen, Tiere, Alltagsgegenstände]\n\nDenk dir jetzt etwas aus und sag mir, wenn du bereit bist.",
+      "kategorie": "Spiele",
+      "artikel_id": 83280,
+      "artikel_titel": "Spielen mit KI – von Textadventures bis zu selbstgebauten Games"
+    },
+    {
+      "id": 20,
+      "titel": "Wortkette spielen",
+      "prompt": "Lass uns Wortkette spielen. Regeln: Jedes neue Wort muss mit dem letzten Buchstaben des vorherigen Wortes beginnen. Nur Substantive. Keine Wiederholungen. Wer kein Wort mehr findet, verliert.\n\nIch fange an: Elefant",
+      "kategorie": "Spiele",
+      "artikel_id": 83280,
+      "artikel_titel": "Spielen mit KI – von Textadventures bis zu selbstgebauten Games"
+    },
+    {
+      "id": 21,
+      "titel": "Quiz erstellen",
+      "prompt": "Erstelle ein Quiz mit 10 Fragen zu [THEMA]. Schwierigkeit: [leicht/mittel/schwer/gemischt]. Format: Multiple Choice mit 4 Optionen.\n\nStelle eine Frage nach der anderen. Warte auf meine Antwort. Sag mir nach jeder Frage, ob ich richtig lag, und gib eine kurze Erklärung. Am Ende: Punktestand und Auswertung.",
+      "kategorie": "Spiele",
+      "artikel_id": 83280,
+      "artikel_titel": "Spielen mit KI – von Textadventures bis zu selbstgebauten Games"
+    },
+    {
+      "id": 22,
+      "titel": "Virtueller Escape Room",
+      "prompt": "Erstelle einen virtuellen Escape Room. Ich bin in einem Raum eingesperrt und muss innerhalb von 60 Minuten entkommen.\n\nRegeln:\n- Beschreibe den Raum detailliert\n- Es gibt 4–5 Rätsel, die aufeinander aufbauen\n- Ich kann Gegenstände untersuchen und kombinieren\n- Gib Hinweise nur, wenn ich explizit darum bitte\n- Sag mir, wenn ich etwas übersehe, das wichtig ist\n\nThema: [z.B. viktorianisches Arbeitszimmer, Geheimlabor, U-Boot]",
+      "kategorie": "Spiele",
+      "artikel_id": 83280,
+      "artikel_titel": "Spielen mit KI – von Textadventures bis zu selbstgebauten Games"
+    },
+    {
+      "id": 23,
+      "titel": "Sherlock Holmes Rollenspiel",
+      "prompt": "Du bist Sherlock Holmes. Ich komme als Klient in die Baker Street und schildere dir einen Fall. Bleib in der Rolle – beobachte mich, ziehe Schlüsse, stelle Fragen, sei brilliant und etwas arrogant. Watson ist im Hintergrund.\n\nBegrüße mich so, wie Holmes es tun würde.",
+      "kategorie": "Spiele",
+      "artikel_id": 83280,
+      "artikel_titel": "Spielen mit KI – von Textadventures bis zu selbstgebauten Games"
+    },
+    {
+      "id": 24,
+      "titel": "Blindschach spielen",
+      "prompt": "Lass uns Schach spielen. Ich spiele Weiß. Wir nutzen algebraische Notation (e2-e4). Nach jedem Zug beschreibst du kurz die Stellung. Spiele auf [Anfänger/mittlerem/fortgeschrittenem] Niveau.\n\nMein erster Zug: e2-e4",
+      "kategorie": "Spiele",
+      "artikel_id": 83280,
+      "artikel_titel": "Spielen mit KI – von Textadventures bis zu selbstgebauten Games"
+    },
+    {
+      "id": 25,
+      "titel": "Snake-Spiel programmieren",
+      "prompt": "Erstelle ein spielbares Snake-Spiel in HTML/JavaScript. Es soll direkt im Browser laufen. Steuerung mit Pfeiltasten. Punktezähler. Game Over bei Wandkollision oder Selbstkollision. Schlichtes, aber ansprechendes Design.",
+      "kategorie": "Spiele",
+      "artikel_id": 83280,
+      "artikel_titel": "Spielen mit KI – von Textadventures bis zu selbstgebauten Games"
+    },
+    {
+      "id": 26,
+      "titel": "Steelmanning Prompt",
+      "prompt": "Ich möchte diese Position kritisieren: [POSITION EINFÜGEN]\n\nFormuliere zunächst die stärkste mögliche Version dieses Arguments (Steelman). Welche guten Gründe könnte jemand haben, das zu glauben? Erst danach: Was sind die überzeugendsten Gegenargumente?",
+      "kategorie": "Kritisches Denken",
+      "artikel_id": 86156,
+      "artikel_titel": "Kritisches Denken trainieren – 15 Techniken"
+    },
+    {
+      "id": 27,
+      "titel": "Logische Fehlschlüsse analysieren",
+      "prompt": "Analysiere dieses Argument auf logische Fehlschlüsse:\n»[ARGUMENT EINFÜGEN]«\n\nBenenne jeden Fehlschluss mit Fachbegriff, erkläre, warum er hier vorliegt, und zeige, wie das Argument korrekt formuliert werden müsste.",
+      "kategorie": "Kritisches Denken",
+      "artikel_id": 86156,
+      "artikel_titel": "Kritisches Denken trainieren – 15 Techniken"
+    },
+    {
+      "id": 28,
+      "titel": "Gedankenexperiment entwickeln",
+      "prompt": "Ich halte diese Annahme für richtig: [ANNAHME EINFÜGEN]\n\nEntwickle ein Gedankenexperiment, das diese Annahme auf die Probe stellt. Welche Konsequenzen hätte es, wenn sie falsch wäre? Gibt es Szenarien, in denen sie nicht zutrifft?",
+      "kategorie": "Kritisches Denken",
+      "artikel_id": 86156,
+      "artikel_titel": "Kritisches Denken trainieren – 15 Techniken"
+    },
+    {
+      "id": 29,
+      "titel": "Prämissen explizit machen",
+      "prompt": "Zerlege dieses Argument in seine Bestandteile:\n»[ARGUMENT EINFÜGEN]«\n\n1. Was ist die Hauptthese?\n2. Welche expliziten Prämissen werden genannt?\n3. Welche impliziten Annahmen stecken dahinter?\n4. Welche dieser Annahmen sind am angreifbarsten?",
+      "kategorie": "Kritisches Denken",
+      "artikel_id": 86156,
+      "artikel_titel": "Kritisches Denken trainieren – 15 Techniken"
+    },
+    {
+      "id": 30,
+      "titel": "Advocatus Diaboli",
+      "prompt": "Ich vertrete diese Position: [POSITION EINFÜGEN]\n\nSpiele den Advocatus Diaboli. Greife meine Position mit den schärfsten verfügbaren Argumenten an. Sei dabei fair, aber unnachgiebig. Ich möchte wissen, wo die Schwachstellen liegen.",
+      "kategorie": "Kritisches Denken",
+      "artikel_id": 86156,
+      "artikel_titel": "Kritisches Denken trainieren – 15 Techniken"
+    },
+    {
+      "id": 31,
+      "titel": "Sokratisches Fragen üben",
+      "prompt": "Ich möchte mein kritisches Denken zu diesem Thema schärfen: [THEMA]\n\nStelle mir sokratische Fragen. Akzeptiere meine Antworten nicht einfach, sondern hake nach. Wenn ich Behauptungen aufstelle, frag nach Belegen. Wenn ich Annahmen mache, mach sie explizit. Ziel ist nicht, mich zu widerlegen, sondern mein Denken zu präzisieren.",
+      "kategorie": "Kritisches Denken",
+      "artikel_id": 86156,
+      "artikel_titel": "Kritisches Denken trainieren – 15 Techniken"
+    },
+    {
+      "id": 32,
+      "titel": "Diskussions-Sparring komplett",
+      "prompt": "Ich brauche deine Unterstützung für eine anstehende Diskussion zum Thema [THEMA].\n\nBitte hilf mir, mich optimal vorzubereiten:\n\n1. Nenne die drei stärksten Pro-Argumente mit je einem Fakt oder Beispiel.\n2. Liste die drei schlagkräftigsten Kontra-Argumente mit je einem Fakt oder Beispiel.\n3. Formuliere drei knifflige Fragen, die mein Gegner stellen könnte, mit schlagfertigen Antworten.\n4. Erstelle eine Übersicht mit 5 wichtigen Fakten und Statistiken.\n5. Lass uns eine Diskussionssimulation durchspielen: Übernimm die Gegenposition für 4 Runden.",
+      "kategorie": "Diskussion",
+      "artikel_id": 90212,
+      "artikel_titel": "Diskussionen gewinnen mit ChatGPT"
+    },
+    {
+      "id": 33,
+      "titel": "Multiple-Choice schnell",
+      "prompt": "Stelle mir 5 Multiple-Choice-Fragen zum Inhalt unseres Chats. Stelle Frage 1, warte meine Antwort ab. Wenn alles richtig war, fahre fort mit Frage 2. Und so weiter. Verwende ein adaptives Schwierigkeitssystem, bei dem die Fragen basierend auf meinen vorherigen Antworten im Schwierigkeitsgrad variieren, aber verrate mir das nicht.",
+      "kategorie": "Lernen",
+      "artikel_id": 84606,
+      "artikel_titel": "Multiple-Choice-Tests mit ChatGPT selbst erstellen"
+    },
+    {
+      "id": 34,
+      "titel": "Multiple-Choice mit Zufallsfragen",
+      "prompt": "Auf einer Skala von 1-10, wo 10 die schwierigste Frage wäre, beginnen wir mit einem Schwierigkeitsgrad von 3. Hier sind die Schritte:\n\n1. Erstelle eine Liste von 100 Fachbegriffen zum Thema KI entsprechend dem gewählten Schwierigkeitsniveau. Nummeriere sie von 1 bis 100.\n2. Generiere 6 Zufallszahlen mit random.randint(1, 100) und wähle entsprechend 6 Fachbegriffe aus deiner Liste.\n3. Erstelle 6 Multiple-Choice-Fragen zu den ausgewählten Fachbegriffen.\n4. Beginne mit Frage 1, warte auf meine Antwort. Verwende ein adaptives Schwierigkeitssystem.\n5. Gib mir zu jeder Antwort konstruktives Feedback.\n6. Am Ende zeige mir eine Zusammenfassung.",
+      "kategorie": "Lernen",
+      "artikel_id": 84606,
+      "artikel_titel": "Multiple-Choice-Tests mit ChatGPT selbst erstellen"
+    },
+    {
+      "id": 35,
+      "titel": "Tutor-Prompt für Schüler",
+      "prompt": "Du bist mein persönlicher Tutor. Bevor du irgendetwas erklärst:\n\n1. Frag mich, was ich über das Thema bereits weiß.\n2. Frag mich, wie tief ich einsteigen will (Grundlagen / Anwendung / Expertenwissen).\n3. Frag mich, wie viel Zeit ich habe.\n4. Frag mich, wie ich am besten lerne (Beispiele / Visualisierung / Übungen).\n\nErstelle dann einen Lernplan mit 3-5 Punkten. Erkläre jeden Punkt mit Beispielen. Stelle nach jedem Abschnitt 1-2 Kontrollfragen. Warte auf mein »Verstanden, weiter!« bevor du fortfährst.\n\nMein Thema ist: [hier einfügen]",
+      "kategorie": "Schule",
+      "artikel_id": 91761,
+      "artikel_titel": "9 KI-Prompts für Schüler"
+    },
+    {
+      "id": 36,
+      "titel": "Aufsatz-Gliederung statt Aufsatz",
+      "prompt": "Ich schreibe einen Aufsatz zur Gretchenfrage in Faust. Erstelle mir:\n\n1. Eine Gliederung (Einleitung, 3 Hauptteile, Schluss)\n2. Für jeden Hauptteil: 2 Textstellen, die ich einbauen könnte\n3. Einen möglichen ersten Satz für die Einleitung\n\nSchreibe den Aufsatz NICHT. Ich brauche nur die Struktur.",
+      "kategorie": "Schule",
+      "artikel_id": 91761,
+      "artikel_titel": "9 KI-Prompts für Schüler"
+    },
+    {
+      "id": 37,
+      "titel": "Mathe Rechenweg verstehen",
+      "prompt": "Ich verstehe diese Aufgabe nicht: [Aufgabe einfügen]\n\nErkläre mir Schritt für Schritt, wie ich vorgehen muss. Bei jedem Schritt:\n- Sag mir, welche Regel ich anwende\n- Erkläre, wo Schüler typischerweise Fehler machen\n- Warte auf mein OK bevor du zum nächsten Schritt gehst\n\nGib mir am Ende NICHT die Lösung. Lass mich den letzten Schritt selbst machen.",
+      "kategorie": "Schule",
+      "artikel_id": 91761,
+      "artikel_titel": "9 KI-Prompts für Schüler"
+    },
+    {
+      "id": 38,
+      "titel": "Vokabeltest Notfall",
+      "prompt": "Ich habe in 8 Stunden einen Spanisch-Vokabeltest. Hier sind die Wörter: [Liste einfügen]\n\nErstelle mir:\n1. Die 15 schwierigsten Wörter mit Eselsbrücken\n2. 5 Mini-Sätze, die möglichst viele Vokabeln kombinieren\n3. Ein 10-Fragen-Quiz zum Selbsttest\n\nDann: Teste mich. Ein Wort nach dem anderen. Sag mir sofort, ob ich richtig liege.",
+      "kategorie": "Schule",
+      "artikel_id": 91761,
+      "artikel_titel": "9 KI-Prompts für Schüler"
+    },
+    {
+      "id": 39,
+      "titel": "Geschichte als Netflix-Serie",
+      "prompt": "Erkläre mir den Aufstieg der Nazis so, als wäre es eine Netflix-Serie.\n\n- Wer sind die Hauptcharaktere?\n- Was ist der zentrale Konflikt?\n- Welche Plot-Twists gab es?\n- Warum hat das Publikum (also die Deutschen damals) mitgemacht?\n\nHalte es spannend, aber faktisch korrekt.",
+      "kategorie": "Schule",
+      "artikel_id": 91761,
+      "artikel_titel": "9 KI-Prompts für Schüler"
+    },
+    {
+      "id": 40,
+      "titel": "Quellenanalyse Cheat-Sheet",
+      "prompt": "Ich muss diese Quelle analysieren: [Text einfügen]\n\nGib mir ein Cheat-Sheet:\n- Wer hat das geschrieben und warum?\n- Was will der Autor erreichen?\n- Welche Wörter verraten seine Position?\n- Was lässt er absichtlich weg?\n\nFormuliere 3 Sätze, die ich in meiner Analyse verwenden kann (aber in meinen eigenen Worten umschreiben werde).",
+      "kategorie": "Schule",
+      "artikel_id": 91761,
+      "artikel_titel": "9 KI-Prompts für Schüler"
+    },
+    {
+      "id": 41,
+      "titel": "Referat vorbereiten",
+      "prompt": "Ich muss ein 10-Minuten-Referat über [Thema] halten.\n\nGib mir:\n1. Einen Einstieg, der nicht »Heute rede ich über...« ist\n2. 3-4 Hauptpunkte, die ich abdecken sollte\n3. Ein Beispiel oder eine Anekdote, die hängen bleibt\n4. Einen Schluss, der nicht »Das war mein Referat« ist\n5. Eine Frage, die ich am Ende stellen kann\n\nBonus: 2 Fragen, die mein Lehrer wahrscheinlich stellen wird, und wie ich darauf antworten kann.",
+      "kategorie": "Schule",
+      "artikel_id": 91761,
+      "artikel_titel": "9 KI-Prompts für Schüler"
+    },
+    {
+      "id": 42,
+      "titel": "Fremdsprache Rollenspiel",
+      "prompt": "Lass uns ein Rollenspiel auf Französisch machen.\n\nSituation: Ich bestelle in einem Café in Paris. Du bist der Kellner.\n\nRegeln:\n- Antworte nur auf Französisch\n- Wenn ich einen Fehler mache, korrigiere mich NICHT sofort\n- Nach 5 Sätzen: Gib mir eine kurze Zusammenfassung meiner Fehler auf Deutsch\n- Dann machen wir weiter\n\nStarte das Gespräch.",
+      "kategorie": "Schule",
+      "artikel_id": 91761,
+      "artikel_titel": "9 KI-Prompts für Schüler"
+    },
+    {
+      "id": 43,
+      "titel": "Klausuren Lernplan",
+      "prompt": "Ich schreibe in 2 Wochen Klausuren in: Mathe, Deutsch, Geschichte, Englisch, Bio.\n\nMeine Zeit: 3 Stunden pro Tag (außer Wochenende: 5 Stunden).\nMeine Schwächen: Mathe (Analysis), Geschichte (Daten merken).\nMein Lernstil: Ich brauche Abwechslung, sonst schlafe ich ein.\n\nErstelle einen Tag-für-Tag-Plan. Mische die Fächer. Plane Pausen ein. Sag mir für jeden Tag, was ich am Ende können sollte.\n\nFormat: Tabelle.",
+      "kategorie": "Schule",
+      "artikel_id": 91761,
+      "artikel_titel": "9 KI-Prompts für Schüler"
+    },
+    {
+      "id": 44,
+      "titel": "Eigenen Text prüfen",
+      "prompt": "Hier ist mein Text: [einfügen]\n\nBewerte ihn wie ein strenger, aber fairer Lehrer:\n- Was funktioniert?\n- Was ist schwach?\n- Welche Stellen klingen nach KI? (damit ich sie umschreiben kann)\n- Gib mir 3 konkrete Verbesserungsvorschläge\n\nSei ehrlich. Ich kann das ab.",
+      "kategorie": "Schule",
+      "artikel_id": 91761,
+      "artikel_titel": "9 KI-Prompts für Schüler"
+    },
+    {
+      "id": 45,
+      "titel": "Historische Persönlichkeit Rollenspiel",
+      "prompt": "Du bist der römische Kaiser Augustus. Antworte auf meine Fragen aus seiner Perspektive, in Ich-Form. Bleibe in der Rolle, auch wenn ich moderne Begriffe verwende. Sprich auf Deutsch, aber lass gelegentlich lateinische Ausdrücke einfließen. Sei konkret, vermeide Floskeln. Beginne mit einer kurzen Begrüßung, die zu deiner Person passt.",
+      "kategorie": "Geschichte",
+      "artikel_id": 81361,
+      "artikel_titel": "Geschichte live erleben"
+    },
+    {
+      "id": 46,
+      "titel": "Fragen für historisches Gespräch",
+      "prompt": "Ich möchte mich mit Jeanne d'Arc unterhalten, um ihre Geschichte zu verstehen. Nenne mir 6 offene Fragen, die ich ihr stellen könnte – keine Ja/Nein-Fragen.",
+      "kategorie": "Geschichte",
+      "artikel_id": 81361,
+      "artikel_titel": "Geschichte live erleben"
+    },
+    {
+      "id": 47,
+      "titel": "Rollentausch - Ich spiele die Figur",
+      "prompt": "Ich werde jetzt Napoleon spielen. Stelle mir Fragen zu meinem Leben und meinen Entscheidungen. Am Ende bewertest du, wie gut ich die Rolle getroffen habe und ob meine Fakten stimmen.",
+      "kategorie": "Geschichte",
+      "artikel_id": 81361,
+      "artikel_titel": "Geschichte live erleben"
+    },
+    {
+      "id": 48,
+      "titel": "Argumentationsstruktur aufdecken",
+      "prompt": "Analysiere die Argumentationsstruktur dieses Textes:\n\n[Text einfügen]\n\n1. Was ist die zentrale These?\n2. Welche Belege werden angeführt?\n3. Welche Zwischenschritte führen von den Belegen zur These?\n4. Gibt es Sprünge in der Argumentation?\n5. Wie stark ist die Argumentation insgesamt?",
+      "kategorie": "Textanalyse",
+      "artikel_id": 84057,
+      "artikel_titel": "Texte analysieren mit KI: 7 Prompts für echtes Verstehen"
+    },
+    {
+      "id": 49,
+      "titel": "Bias und Perspektive erkennen",
+      "prompt": "Untersuche diesen Text auf Voreingenommenheit:\n\n[Text einfügen]\n\n1. Welche Position vertritt der Autor?\n2. Welche Perspektiven fehlen?\n3. Welche Wörter verraten eine Wertung?\n4. Wer kommt zu Wort, wer nicht?\n5. Lässt sich die Position einem Interesse zuordnen?\n\nSei konkret: Zitiere Stellen aus dem Text.",
+      "kategorie": "Textanalyse",
+      "artikel_id": 84057,
+      "artikel_titel": "Texte analysieren mit KI: 7 Prompts für echtes Verstehen"
+    },
+    {
+      "id": 50,
+      "titel": "Quellen und Belege prüfen",
+      "prompt": "Prüfe die Belege in diesem Text:\n\n[Text einfügen]\n\n1. Welche Quellen werden genannt?\n2. Sind die Quellen überprüfbar?\n3. Wie aktuell sind die Belege?\n4. Werden Studien korrekt wiedergegeben?\n5. Gibt es Behauptungen ohne Beleg?\n6. Welche zusätzlichen Quellen wären nötig?",
+      "kategorie": "Textanalyse",
+      "artikel_id": 84057,
+      "artikel_titel": "Texte analysieren mit KI: 7 Prompts für echtes Verstehen"
+    },
+    {
+      "id": 51,
+      "titel": "Was nicht gesagt wird analysieren",
+      "prompt": "Analysiere, was in diesem Text NICHT gesagt wird:\n\n[Text einfügen]\n\n1. Welche naheliegenden Fragen werden nicht beantwortet?\n2. Welche Gegenargumente werden ignoriert?\n3. Welche Perspektiven kommen nicht vor?\n4. Gibt es Themen, die der Text streift, aber nicht vertieft?\n5. Was müsste ein Leser zusätzlich wissen?",
+      "kategorie": "Textanalyse",
+      "artikel_id": 84057,
+      "artikel_titel": "Texte analysieren mit KI: 7 Prompts für echtes Verstehen"
+    },
+    {
+      "id": 52,
+      "titel": "Fachbegriffe Glossar erstellen",
+      "prompt": "Erstelle ein Glossar für diesen Text:\n\n[Text einfügen]\n\nIdentifiziere alle Fachbegriffe und Abkürzungen. Erkläre jeden Begriff:\n- In einem Satz: Was bedeutet das?\n- Warum ist es im Kontext wichtig?\n\nSortiere nach Relevanz, nicht alphabetisch.",
+      "kategorie": "Textanalyse",
+      "artikel_id": 84057,
+      "artikel_titel": "Texte analysieren mit KI: 7 Prompts für echtes Verstehen"
+    },
+    {
+      "id": 53,
+      "titel": "Systematische Textanalyse komplett",
+      "prompt": "Analysiere diesen Text systematisch:\n\n[Text einfügen]\n\n1. THESE: Was ist die zentrale Aussage? In einem Satz.\n2. ARGUMENTATION: Wie wird die These gestützt? Wo gibt es Schwächen?\n3. PERSPEKTIVE: Welche Voreingenommenheit ist erkennbar?\n4. LÜCKEN: Was fehlt? Welche Gegenargumente werden ignoriert?\n5. QUELLEN: Wie gut sind die Belege?\n6. GLOSSAR: Welche Fachbegriffe sollte ein Laie kennen?\n7. FAZIT: Wie überzeugend ist der Text insgesamt?",
+      "kategorie": "Textanalyse",
+      "artikel_id": 84057,
+      "artikel_titel": "Texte analysieren mit KI: 7 Prompts für echtes Verstehen"
+    },
+    {
+      "id": 54,
+      "titel": "14-Tage Bildungssprache verbessern",
+      "prompt": "Überarbeite diesen Text bildungssprachlich, aber erkläre mir jeden wichtigen Begriff, den du änderst. Zeig mir konkret, warum die neue Version präziser ist.",
+      "kategorie": "Bildungssprache",
+      "artikel_id": 91347,
+      "artikel_titel": "Wie du deine Bildungssprache in 14 Tagen um 50% verbesserst"
+    },
+    {
+      "id": 55,
+      "titel": "Nuancen-Training",
+      "prompt": "Erkläre mir die subtilen Unterschiede zwischen ›implementieren‹, ›einführen‹ und ›etablieren‹. Gib mir Beispielsätze für verschiedene Kontexte.",
+      "kategorie": "Bildungssprache",
+      "artikel_id": 91347,
+      "artikel_titel": "Wie du deine Bildungssprache in 14 Tagen um 50% verbesserst"
+    },
+    {
+      "id": 56,
+      "titel": "Stilkontrolle",
+      "prompt": "Bewerte diesen Text: Ist die Bildungssprache angemessen dosiert oder wirkt sie aufgesetzt? Wie würde ein kritischer Leser reagieren?",
+      "kategorie": "Bildungssprache",
+      "artikel_id": 91347,
+      "artikel_titel": "Wie du deine Bildungssprache in 14 Tagen um 50% verbesserst"
+    },
+    {
+      "id": 57,
+      "titel": "Kontextsensibilität - 5 Versionen",
+      "prompt": "Formuliere denselben Inhalt für fünf verschiedene Situationen: E-Mail an den Professor, Blogpost, Präsentation vor Kunden, WhatsApp an Freunde, formeller Bericht.",
+      "kategorie": "Bildungssprache",
+      "artikel_id": 91347,
+      "artikel_titel": "Wie du deine Bildungssprache in 14 Tagen um 50% verbesserst"
+    },
+    {
+      "id": 58,
+      "titel": "Synonym-Abstufungen",
+      "prompt": "Gib mir zu ›interessant‹ acht bildungssprachliche Alternativen mit feinen Bedeutungsunterschieden. Sortiere sie von neutral bis hochgradig bildungssprachlich.",
+      "kategorie": "Bildungssprache",
+      "artikel_id": 91347,
+      "artikel_titel": "Wie du deine Bildungssprache in 14 Tagen um 50% verbesserst"
+    },
+    {
+      "id": 59,
+      "titel": "MC-Prüfungssimulator",
+      "prompt": "Erstelle 10 Multiple-Choice-Fragen zum Thema [Thema einsetzen].\n\nAnforderungen:\n- Niveau: [Schule / Bachelor / Master]\n- 4 Antwortmöglichkeiten pro Frage (A, B, C, D)\n- Genau eine richtige Antwort\n- Die falschen Antworten sollen plausibel klingen\n- Mische verschiedene Fragetypen\n\nZeige mir erst nur die Fragen. Die Lösungen gibst du mir auf Nachfrage.",
+      "kategorie": "Prüfungsvorbereitung",
+      "artikel_id": 84645,
+      "artikel_titel": "Multiple-Choice-Fragen meistern: 10 Techniken + KI-Prompts"
+    },
+    {
+      "id": 60,
+      "titel": "Ausschlussverfahren trainieren",
+      "prompt": "Stelle mir eine Multiple-Choice-Frage zu [Thema].\n\nNachdem ich geantwortet habe:\n1. Sag mir, ob ich richtig liege\n2. Erkläre für JEDE Antwortmöglichkeit, warum sie richtig oder falsch ist\n3. Zeige mir, welche Hinweise in der Formulierung auf die richtige Antwort deuten\n4. Erkläre, wie ich mit dem Ausschlussverfahren hätte vorgehen können\n\nDann: Nächste Frage.",
+      "kategorie": "Prüfungsvorbereitung",
+      "artikel_id": 84645,
+      "artikel_titel": "Multiple-Choice-Fragen meistern: 10 Techniken + KI-Prompts"
+    },
+    {
+      "id": 61,
+      "titel": "MC-Fehleranalyst",
+      "prompt": "Ich habe diese MC-Frage falsch beantwortet:\n\n[Frage und Antwortmöglichkeiten einfügen]\n\nMeine Antwort war: [deine Antwort]\nRichtig wäre: [richtige Antwort]\n\nAnalysiere:\n1. Welches Wissen hat mir gefehlt?\n2. Gab es Hinweise in der Formulierung, die ich übersehen habe?\n3. Welcher Denkfehler hat mich zur falschen Antwort geführt?\n4. Wie kann ich mir das Richtige besser merken?\n\nErstelle dann 3 ähnliche Fragen zum Üben.",
+      "kategorie": "Prüfungsvorbereitung",
+      "artikel_id": 84645,
+      "artikel_titel": "Multiple-Choice-Fragen meistern: 10 Techniken + KI-Prompts"
+    },
+    {
+      "id": 62,
+      "titel": "Schwachstellen-Finder",
+      "prompt": "Ich bereite mich auf eine Prüfung in [Fach] vor. Thema: [Thema].\n\nStelle mir 20 schnelle Fragen – kurz und direkt, wie ein Karteikarten-Test. Ich antworte mit einem Wort oder einem kurzen Satz.\n\nNach jeder Antwort sagst du nur »Richtig« oder »Falsch« und gibst die korrekte Antwort.\n\nAm Ende: Analysiere meine Fehler und sag mir, welche Teilbereiche ich wiederholen sollte.",
+      "kategorie": "Prüfungsvorbereitung",
+      "artikel_id": 84645,
+      "artikel_titel": "Multiple-Choice-Fragen meistern: 10 Techniken + KI-Prompts"
+    },
+    {
+      "id": 63,
+      "titel": "Trickfragen-Generator",
+      "prompt": "Erstelle 5 besonders schwierige MC-Fragen zu [Thema].\n\nNutze typische Prüfer-Tricks:\n- Doppelte Verneinungen\n- Sehr ähnliche Antwortmöglichkeiten\n- Fangfragen\n- »Alle oben genannten« / »Keine der genannten«\n- Fragen, die Wissen kombinieren\n\nErkläre nach meiner Antwort, worauf ich hätte achten müssen.",
+      "kategorie": "Prüfungsvorbereitung",
+      "artikel_id": 84645,
+      "artikel_titel": "Multiple-Choice-Fragen meistern: 10 Techniken + KI-Prompts"
+    },
+    {
+      "id": 64,
+      "titel": "Erklärbär-Test für MC",
+      "prompt": "Stelle mir eine MC-Frage zu [Thema].\n\nNachdem ich geantwortet habe, frag mich: »Warum hast du dich für diese Antwort entschieden?«\n\nIch muss dann erklären, warum die anderen Optionen falsch sind.\n\nBewerte meine Erklärung:\n- Habe ich das Konzept verstanden oder nur geraten?\n- Was fehlt in meiner Begründung?\n\nWiederhole, bis ich 5 Fragen hintereinander sauber begründen kann.",
+      "kategorie": "Prüfungsvorbereitung",
+      "artikel_id": 84645,
+      "artikel_titel": "Multiple-Choice-Fragen meistern: 10 Techniken + KI-Prompts"
+    },
+    {
+      "id": 65,
+      "titel": "Sokratischer Dialog mit KI",
+      "prompt": "Lass uns über [Thema] diskutieren, als wären wir Sokrates und sein Schüler. Stelle mir tiefgründige Fragen, hinterfrage meine Annahmen und fordere mich heraus, meine Ansichten zu begründen. Hilf mir, durch diesen Dialog ein tieferes Verständnis zu erlangen.",
+      "kategorie": "Sokratische Methode",
+      "artikel_id": 86110,
+      "artikel_titel": "Sokratische Methode trifft KI: 15 smarte Lernhacks"
+    },
+    {
+      "id": 66,
+      "titel": "3-Level-Verständnis",
+      "prompt": "Ich möchte mein Verständnis von [Thema] in 3 Stufen vertiefen. Beginnend mit Grundlagenfragen, über die Erklärung von Zusammenhängen bis hin zur Diskussion komplexer Sachverhalte. Lass uns Schritt für Schritt die 3 Level durchgehen.",
+      "kategorie": "Sokratische Methode",
+      "artikel_id": 86110,
+      "artikel_titel": "Sokratische Methode trifft KI: 15 smarte Lernhacks"
+    },
+    {
+      "id": 67,
+      "titel": "Wissens-Ping-Pong",
+      "prompt": "Lass uns eine Runde Wissens-Ping-Pong spielen! Ich stelle dir eine Frage zu [Thema], du antwortest. Dann hinterfrage ich deine Antwort und du elaborierst. Wir machen so lange weiter, bis ich das Gefühl habe, die Thematik wirklich durchdrungen zu haben.",
+      "kategorie": "Sokratische Methode",
+      "artikel_id": 86110,
+      "artikel_titel": "Sokratische Methode trifft KI: 15 smarte Lernhacks"
+    },
+    {
+      "id": 68,
+      "titel": "Erklärbär-Test",
+      "prompt": "Hilf mir, zu einem echten Erklärbär für [Thema] zu werden. Stelle mir Fragen dazu und ich werde versuchen, sie zu beantworten, als würde ich einem wissbegierigen Kind die Sache erklären. Gib mir Feedback, ob meine Erklärungen einfach und verständlich genug sind.",
+      "kategorie": "Sokratische Methode",
+      "artikel_id": 86110,
+      "artikel_titel": "Sokratische Methode trifft KI: 15 smarte Lernhacks"
+    },
+    {
+      "id": 69,
+      "titel": "Eselsbrücken und Analogien",
+      "prompt": "Erfinde ein paar verrückte Eselsbrücken und Analogien, die mir helfen, [Thema/Fachbegriff] zu verstehen und mir zu merken. Je kreativer und witziger, desto besser! Lass deiner Fantasie freien Lauf.",
+      "kategorie": "Sokratische Methode",
+      "artikel_id": 86110,
+      "artikel_titel": "Sokratische Methode trifft KI: 15 smarte Lernhacks"
+    },
+    {
+      "id": 70,
+      "titel": "Why-Why-Why-Spiel",
+      "prompt": "Lass uns das Why-Why-Why-Spiel spielen. Ich stelle dir eine Einstiegsfrage zu [Thema]. Du beantwortest sie und ich hinterfrage deine Antwort dann dreimal mit 'Warum?'. So kommen wir Schritt für Schritt zum tieferen Kern der Sache.",
+      "kategorie": "Sokratische Methode",
+      "artikel_id": 86110,
+      "artikel_titel": "Sokratische Methode trifft KI: 15 smarte Lernhacks"
+    },
+    {
+      "id": 71,
+      "titel": "Struktur-Detektei",
+      "prompt": "Ich möchte die Struktur von [Thema] besser durchdringen. Hilf mir, das Skelett freizulegen, indem du mir eine Einstiegsfrage dazu gibst und wir dann immer weiter nach der übergeordneten Struktur und den Zusammenhängen fragen, bis wir den Kern erreicht haben.",
+      "kategorie": "Sokratische Methode",
+      "artikel_id": 86110,
+      "artikel_titel": "Sokratische Methode trifft KI: 15 smarte Lernhacks"
+    },
+    {
+      "id": 72,
+      "titel": "Experten-Simulator",
+      "prompt": "Stell dir vor, du wärst der weltweit führende Experte für [Thema]. Ich bin dein wissbegieriger Student und darf dich alles fragen, was ich schon immer über das Thema wissen wollte. Welche spannenden Insights und Kniffe kannst du mit mir teilen?",
+      "kategorie": "Sokratische Methode",
+      "artikel_id": 86110,
+      "artikel_titel": "Sokratische Methode trifft KI: 15 smarte Lernhacks"
+    },
+    {
+      "id": 73,
+      "titel": "Gedankenexperimente",
+      "prompt": "Lass uns ein paar Gedankenexperimente zu [Thema] machen. Was wäre, wenn [Annahme/Voraussetzung] nicht mehr gelten würde? Wozu würde das führen und was können wir daraus lernen? Hilf mir, durch Spekulation mein vernetztes Denken zu trainieren.",
+      "kategorie": "Sokratische Methode",
+      "artikel_id": 86110,
+      "artikel_titel": "Sokratische Methode trifft KI: 15 smarte Lernhacks"
+    },
+    {
+      "id": 74,
+      "titel": "Lückentext-Generator",
+      "prompt": "Erstelle mir einen Lückentext zu [Thema], bei dem die wichtigsten Fachbegriffe und Schlüsselkonzepte fehlen. Ich werde versuchen, die Lücken zu füllen, und du sagst mir dann, ob es richtig war. So kann ich mein Wissen spielerisch testen.",
+      "kategorie": "Sokratische Methode",
+      "artikel_id": 86110,
+      "artikel_titel": "Sokratische Methode trifft KI: 15 smarte Lernhacks"
+    },
+    {
+      "id": 75,
+      "titel": "P.A.C.E. Framework Beispiel",
+      "prompt": "(P) Um mich auf meine Klausur in Makroökonomie vorzubereiten, (A) erstelle bitte 10 Übungsfragen, (C) die sich auf das IS-LM-Modell konzentrieren und das Niveau einer Erstsemester-Vorlesung haben. (E) Gib die Ausgabe als Tabelle mit Frage, Antwort und Erklärung aus.",
+      "kategorie": "Studium",
+      "artikel_id": 91708,
+      "artikel_titel": "KI-Prompts für Studierende"
+    },
+    {
+      "id": 76,
+      "titel": "Sokratischer Tutor für Übungsaufgaben",
+      "prompt": "Ich hänge an dieser Übungsaufgabe: [Aufgabe einfügen]. WICHTIG: Gib mir auf keinen Fall die Lösung! Agiere stattdessen als mein Tutor. Analysiere meinen bisherigen Lösungsansatz: [Ansatz einfügen]. Stelle mir eine gezielte Frage oder gib mir einen kleinen Hinweis, der mich auf den richtigen Weg bringt. Warte auf meine Antwort. Führe mich schrittweise zur Lösung.",
+      "kategorie": "Studium",
+      "artikel_id": 91708,
+      "artikel_titel": "KI-Prompts für Studierende"
+    },
+    {
+      "id": 77,
+      "titel": "Feynman-Methode mit KI",
+      "prompt": "Ich möchte das Konzept [Thema] wirklich verstehen. Erkläre es mir zuerst so, als wäre ich 12 Jahre alt. Nutze eine anschauliche Analogie aus dem Alltag. Wenn ich ›Verstanden‹ sage, erkläre es erneut auf dem Niveau eines Abiturienten, inklusive der wichtigsten Fachbegriffe. Schließlich erkläre es auf Expertenniveau für eine Universitätsprüfung. Teste mein Verständnis am Ende mit einer Transferfrage.",
+      "kategorie": "Studium",
+      "artikel_id": 91708,
+      "artikel_titel": "KI-Prompts für Studierende"
+    },
+    {
+      "id": 78,
+      "titel": "Skeleton-Prompt für Gliederungen",
+      "prompt": "Ich schreibe eine [Art der Arbeit] im Fach [Fachbereich] zum Thema [Thema]. Erstelle einen detaillierten Gliederungsvorschlag. Für jedes Kapitel und Unterkapitel: Definiere das spezifische Ziel dieses Abschnitts. Liste 3-4 logische Argumentationspunkte auf. Schlage vor, welche Art von Quellen hier benötigt werden. Achte auf einen roten Faden von der Einleitung bis zum Fazit.",
+      "kategorie": "Studium",
+      "artikel_id": 91708,
+      "artikel_titel": "KI-Prompts für Studierende"
+    },
+    {
+      "id": 79,
+      "titel": "Academic Polisher",
+      "prompt": "Du bist ein strenger akademischer Lektor für [Fachbereich]. Überarbeite den folgenden Absatz, um ihn präziser, objektiver und wissenschaftlicher klingen zu lassen. Behalte den inhaltlichen Sinn zu 100 Prozent bei. Entferne Füllwörter und umgangssprachliche Wendungen. Verbessere den Satzbau und die Wortwahl. Markiere alle Änderungen, damit ich sie nachvollziehen kann.\n\nText: [Hier eigenen Entwurf einfügen]",
+      "kategorie": "Studium",
+      "artikel_id": 91708,
+      "artikel_titel": "KI-Prompts für Studierende"
+    },
+    {
+      "id": 80,
+      "titel": "Gap Finder für Forschungslücken",
+      "prompt": "Du bist ein Senior Researcher im Bereich [Fachbereich]. Basierend auf den akademischen Trends der Jahre 2024 und 2025: Liste 5 aktuelle Forschungsthemen auf. Identifiziere für jedes Thema eine spezifische Forschungslücke, die in aktuellen Papern oft als ›Limitierung‹ oder ›Future Research‹ genannt wird. Formuliere zu jeder Lücke eine präzise Forschungsfrage und eine Hypothese.",
+      "kategorie": "Studium",
+      "artikel_id": 91708,
+      "artikel_titel": "KI-Prompts für Studierende"
+    },
+    {
+      "id": 81,
+      "titel": "Verteidigung simulieren",
+      "prompt": "Du bist ein kritischer Professor, der meine Bachelorarbeit zum Thema [Thema] begutachtet. Führe eine Simulation der Verteidigung durch. Stelle mir nacheinander eine provokante oder kritische Frage zu meiner Methodik oder meinen Ergebnissen. Warte auf meine Antwort. Bewerte meine Antwort auf einer Skala von 1 bis 10 und gib mir Feedback. Stelle dann die nächste Frage. Sei streng!",
+      "kategorie": "Studium",
+      "artikel_id": 91708,
+      "artikel_titel": "KI-Prompts für Studierende"
+    },
+    {
+      "id": 82,
+      "titel": "Prompt-Generator",
+      "prompt": "Du bist ein Prompt-Generierungsbot. Du musst Informationen über die Ziele der Nutzer, die gewünschten Beispiele für das Ausgabeergebnis und alle anderen relevanten kontextuellen Informationen sammeln. Der Prompt sollte alle notwendigen Informationen enthalten. Stelle dem Nutzer so lange Nachfragen, bis du sicher bist, dass du einen optimalen Prompt produzieren kannst. Beginne damit, den Nutzer nach seinen Zielen zu fragen.",
+      "kategorie": "Prompting",
+      "artikel_id": 82281,
+      "artikel_titel": "ChatGPT – 15 praktische Tipps"
+    },
+    {
+      "id": 83,
+      "titel": "Penibler Korrektor",
+      "prompt": "Du bist studierter Germanist und ein penibler Korrektor, dem kein Fehler entgeht. Prüfe den folgenden Text auf Rechtschreibfehler. Gib keine weiteren Tipps, sondern beschränke dich auf die korrekte Schreibweise:",
+      "kategorie": "Textverbesserung",
+      "artikel_id": 82281,
+      "artikel_titel": "ChatGPT – 15 praktische Tipps"
+    },
+    {
+      "id": 84,
+      "titel": "Boolesche Suche erstellen",
+      "prompt": "Entwickle einen präzisen Suchstring, um aktuelle Forschungsartikel zum Thema »künstliche Intelligenz in der medizinischen Diagnostik« zu finden. Die Artikel sollten aus den letzten zwei Jahren stammen und in hochrangigen wissenschaftlichen Journalen veröffentlicht worden sein. Berücksichtige dabei sowohl englischsprachige als auch deutschsprachige Publikationen. Nutze Boolesche Operatoren.",
+      "kategorie": "Recherche",
+      "artikel_id": 82281,
+      "artikel_titel": "ChatGPT – 15 praktische Tipps"
+    },
+    {
+      "id": 85,
+      "titel": "Feynman Erklärungs-Check",
+      "prompt": "Ich werde dir jetzt [THEMA] erklären, als würde ich es einem 12-Jährigen beibringen. Bitte bewerte danach:\n- Wo war meine Erklärung unklar?\n- Welche Fachbegriffe habe ich benutzt, ohne sie zu erklären?\n- Welche wichtigen Aspekte habe ich ausgelassen?\nGib mir konkretes Feedback.\n\nHier ist meine Erklärung: [DEINE ERKLÄRUNG]",
+      "kategorie": "Feynman-Methode",
+      "artikel_id": 86360,
+      "artikel_titel": "Lerne wie ein Genie: die Feynman-Methode in 15 Hacks"
+    },
+    {
+      "id": 86,
+      "titel": "Feynman Nachfrage-Modus",
+      "prompt": "Ich möchte mein Verständnis von [THEMA] testen. Stell mir bitte nacheinander einfache Warum- und Wie-Fragen dazu, wie ein neugieriger Laie es tun würde. Beginne mit grundlegenden Fragen und werde schrittweise spezifischer. Warte nach jeder Frage auf meine Antwort.",
+      "kategorie": "Feynman-Methode",
+      "artikel_id": 86360,
+      "artikel_titel": "Lerne wie ein Genie: die Feynman-Methode in 15 Hacks"
+    },
+    {
+      "id": 87,
+      "titel": "Analogie-Finder",
+      "prompt": "Ich lerne gerade [THEMA] und versuche, es mir mit Alltagsvergleichen verständlich zu machen. Hier ist meine Analogie: [DEINE ANALOGIE]. Ist dieser Vergleich treffend? Wo hinkt er? Kannst du mir 2-3 alternative Analogien vorschlagen?",
+      "kategorie": "Feynman-Methode",
+      "artikel_id": 86360,
+      "artikel_titel": "Lerne wie ein Genie: die Feynman-Methode in 15 Hacks"
+    },
+    {
+      "id": 88,
+      "titel": "Lücken-Detektor",
+      "prompt": "Ich glaube, ich verstehe [THEMA] ziemlich gut. Stelle mir bitte 5 Verständnisfragen dazu – keine Faktenfragen, sondern Fragen, die zeigen, ob ich das Konzept wirklich durchdrungen habe. Beginne einfach und steigere den Schwierigkeitsgrad. Nach jeder Antwort sag mir ehrlich, wo mein Verständnis noch Lücken hat.",
+      "kategorie": "Feynman-Methode",
+      "artikel_id": 86360,
+      "artikel_titel": "Lerne wie ein Genie: die Feynman-Methode in 15 Hacks"
+    },
+    {
+      "id": 89,
+      "titel": "Der Vereinfacher",
+      "prompt": "Erkläre mir [THEMA] in drei Stufen: Erst für einen Grundschüler (maximal 50 Wörter), dann für einen interessierten Laien (100 Wörter), dann für jemanden mit Grundkenntnissen (150 Wörter). Verzichte in allen Versionen auf Fachbegriffe – oder erkläre sie sofort.",
+      "kategorie": "Feynman-Methode",
+      "artikel_id": 86360,
+      "artikel_titel": "Lerne wie ein Genie: die Feynman-Methode in 15 Hacks"
+    },
+    {
+      "id": 90,
+      "titel": "Dialog-Simulator",
+      "prompt": "Simuliere ein Gespräch: Du bist mein Freund, der von [THEMA] noch nie gehört hat. Du bist neugierig, aber ungeduldig – wenn ich zu kompliziert werde, unterbrichst du mich und fragst nach. Ich erkläre dir jetzt das Thema, und du reagierst authentisch mit Nachfragen, Verwirrung oder Aha-Momenten.",
+      "kategorie": "Feynman-Methode",
+      "artikel_id": 86360,
+      "artikel_titel": "Lerne wie ein Genie: die Feynman-Methode in 15 Hacks"
+    },
+    {
+      "id": 91,
+      "titel": "Feynman-Coach komplett",
+      "prompt": "Führe mich durch die Feynman-Methode für [THEMA].\nSchritt 1: Lass mich dir erklären, was ich darüber weiß.\nSchritt 2: Identifiziere Lücken und unklare Stellen.\nSchritt 3: Hilf mir, diese Lücken zu schließen.\nSchritt 4: Lass mich nochmal erklären und prüfe, ob es jetzt besser ist.\nBeginne mit Schritt 1.",
+      "kategorie": "Feynman-Methode",
+      "artikel_id": 86360,
+      "artikel_titel": "Lerne wie ein Genie: die Feynman-Methode in 15 Hacks"
+    },
+    {
+      "id": 92,
+      "titel": "Sokratischer Fragesteller",
+      "prompt": "Ich möchte [THEMA] wirklich verstehen, nicht nur oberflächlich. Stelle mir dazu fünf aufeinander aufbauende Fragen im sokratischen Stil. Warte nach jeder Frage auf meine Antwort. Hinterfrage meine Antworten kritisch und hilf mir, Denkfehler zu erkennen.",
+      "kategorie": "Fragetechniken",
+      "artikel_id": 82497,
+      "artikel_titel": "ChatGPT – Wie man einer KI die richtigen Fragen stellt"
+    },
+    {
+      "id": 93,
+      "titel": "Perspektivwechsler",
+      "prompt": "Erkläre mir [THEMA] aus drei völlig unterschiedlichen Perspektiven:\n1) Ein Skeptiker, der die gängige Meinung anzweifelt.\n2) Ein Historiker, der Parallelen zur Vergangenheit zieht.\n3) Ein Kind, das naive, aber durchdringende Fragen stellt.\nWelche Perspektive liefert die interessantesten Einsichten?",
+      "kategorie": "Fragetechniken",
+      "artikel_id": 82497,
+      "artikel_titel": "ChatGPT – Wie man einer KI die richtigen Fragen stellt"
+    },
+    {
+      "id": 94,
+      "titel": "Reverse Engineer",
+      "prompt": "Ich will [ZIEL] erreichen. Statt mir zu sagen, wie das geht, erkläre mir: Was würde garantiert dazu führen, dass ich scheitere? Welche Fehler machen die meisten? Welche falschen Annahmen sind verbreitet? Leite daraus dann ab, was ich tatsächlich tun sollte.",
+      "kategorie": "Fragetechniken",
+      "artikel_id": 82497,
+      "artikel_titel": "ChatGPT – Wie man einer KI die richtigen Fragen stellt"
+    },
+    {
+      "id": 95,
+      "titel": "Experten-Simulator Prompt",
+      "prompt": "Du bist ein erfahrener [EXPERTE/BERUF] mit 20 Jahren Praxiserfahrung. Ich bin ein Anfänger, der [PROBLEM/FRAGE] hat. Gib mir keine Standardratschläge. Sag mir stattdessen: Was würdest du einem Kollegen unter vier Augen raten, das du einem Kunden nie sagen würdest?",
+      "kategorie": "Fragetechniken",
+      "artikel_id": 82497,
+      "artikel_titel": "ChatGPT – Wie man einer KI die richtigen Fragen stellt"
+    },
+    {
+      "id": 96,
+      "titel": "Tiefenbohrer 5-Warum",
+      "prompt": "Ich habe folgendes Problem: [PROBLEM BESCHREIBEN]. Führe mich durch die 5-Warum-Methode. Frage fünfmal »Warum?«, um zur eigentlichen Ursache vorzudringen. Warte jeweils auf meine Antwort. Am Ende fasse zusammen, was wir über die Wurzel des Problems herausgefunden haben.",
+      "kategorie": "Fragetechniken",
+      "artikel_id": 82497,
+      "artikel_titel": "ChatGPT – Wie man einer KI die richtigen Fragen stellt"
+    },
+    {
+      "id": 97,
+      "titel": "Emojis und Assoziationen",
+      "prompt": "Gib zu diesen Wörtern jeweils an: das passendste Adjektiv, das passendste Verb, die Farbe des Wortes, ein passendes Emoji, Sentiment, Diminutiv: Kuss, Faustschlag, Lebkuchen, Euromünze, Zitronenbaum",
+      "kategorie": "Textverbesserung",
+      "artikel_id": 81366,
+      "artikel_titel": "Wie ChatGPT deine Texte zum Glänzen bringen kann – 29 Ideen"
+    },
+    {
+      "id": 98,
+      "titel": "Einfache Textanalyse",
+      "prompt": "Analysiere diesen Text und sage mir, wie du ihn einschätzt: Thema, Stil, Stärken, Schwächen.",
+      "kategorie": "Textanalyse",
+      "artikel_id": 81366,
+      "artikel_titel": "Wie ChatGPT deine Texte zum Glänzen bringen kann – 29 Ideen"
+    },
+    {
+      "id": 99,
+      "titel": "Keywords extrahieren",
+      "prompt": "Extrahiere die zentralen Keywords aus dem Text. Fokussiere auf Nomen, Eigennamen und prägende Adjektive. Vermeide Stoppwörter und häufige Verben. Ziel: die Elemente identifizieren, die für das Verständnis der Hauptthemen essentiell sind.",
+      "kategorie": "Textanalyse",
+      "artikel_id": 81366,
+      "artikel_titel": "Wie ChatGPT deine Texte zum Glänzen bringen kann – 29 Ideen"
+    },
+    {
+      "id": 100,
+      "titel": "Zielgruppenanalyse",
+      "prompt": "Analysiere den folgenden Text hinsichtlich seiner Eignung für die Zielgruppe [ZIELGRUPPE HIER EINFÜGEN]. Berücksichtige Sprachniveau, thematische Relevanz, emotionale Ansprache und spezifische Anforderungen der Zielgruppe.",
+      "kategorie": "Textanalyse",
+      "artikel_id": 81366,
+      "artikel_titel": "Wie ChatGPT deine Texte zum Glänzen bringen kann – 29 Ideen"
+    },
+    {
+      "id": 101,
+      "titel": "Lesealter einschätzen",
+      "prompt": "Bewerte die sprachliche Komplexität, thematische Reife und Lesbarkeit dieses Textes. Für welche Altersgruppe ist er geeignet? Berücksichtige Vokabular, Satzstruktur und erforderliche Abstraktionsfähigkeit.",
+      "kategorie": "Textanalyse",
+      "artikel_id": 81366,
+      "artikel_titel": "Wie ChatGPT deine Texte zum Glänzen bringen kann – 29 Ideen"
+    },
+    {
+      "id": 102,
+      "titel": "Text kürzen ohne Inhaltsverlust",
+      "prompt": "Kürze diesen Text um etwa 30%, ohne wesentliche Informationen zu verlieren. Entferne Redundanzen und Füllwörter, behalte den Stil bei.",
+      "kategorie": "Textverbesserung",
+      "artikel_id": 81366,
+      "artikel_titel": "Wie ChatGPT deine Texte zum Glänzen bringen kann – 29 Ideen"
+    },
+    {
+      "id": 103,
+      "titel": "Kommafreier Text",
+      "prompt": "Schreibe den Text so um, dass keine Kommata verwendet werden.",
+      "kategorie": "Textverbesserung",
+      "artikel_id": 81366,
+      "artikel_titel": "Wie ChatGPT deine Texte zum Glänzen bringen kann – 29 Ideen"
+    },
+    {
+      "id": 104,
+      "titel": "Text mit mehr Kommata",
+      "prompt": "Schreibe den Text so um, dass jeder Satz mindestens zwei Kommata enthält und die Sätze weiterhin sinnvoll bleiben. Achte darauf, dass die Umformulierungen die Informationen klar und verständlich wiedergeben.",
+      "kategorie": "Textverbesserung",
+      "artikel_id": 81366,
+      "artikel_titel": "Wie ChatGPT deine Texte zum Glänzen bringen kann – 29 Ideen"
+    },
+    {
+      "id": 105,
+      "titel": "Kritik vom Text abholen",
+      "prompt": "Kritisiere diesen Text scharf und ehrlich. Du bist ein erfahrener Literaturkritiker. Beurteile den folgenden Text, streng, aber gerecht.",
+      "kategorie": "Textverbesserung",
+      "artikel_id": 81366,
+      "artikel_titel": "Wie ChatGPT deine Texte zum Glänzen bringen kann – 29 Ideen"
+    },
+    {
+      "id": 106,
+      "titel": "Ton anpassen",
+      "prompt": "Schreibe diesen Text um, sodass er klingt wie eine freundliche E-Mail an einen Kollegen, nicht wie ein offizielles Schreiben.",
+      "kategorie": "Textverbesserung",
+      "artikel_id": 81366,
+      "artikel_titel": "Wie ChatGPT deine Texte zum Glänzen bringen kann – 29 Ideen"
+    },
+    {
+      "id": 107,
+      "titel": "Lücken füllen",
+      "prompt": "Im folgenden Text sind Platzhalter in eckigen Klammern. Fülle sie mit passenden Inhalten, die zum Stil und Thema des Textes passen.",
+      "kategorie": "Textverbesserung",
+      "artikel_id": 81366,
+      "artikel_titel": "Wie ChatGPT deine Texte zum Glänzen bringen kann – 29 Ideen"
+    },
+    {
+      "id": 108,
+      "titel": "HTML mit farbigen Wörtern",
+      "prompt": "Konvertiere den folgenden Text in HTML und färbe das Wort oder den Wortbestandteil »Bildung« bei jedem Auftauchen rot:",
+      "kategorie": "Textverbesserung",
+      "artikel_id": 81366,
+      "artikel_titel": "Wie ChatGPT deine Texte zum Glänzen bringen kann – 29 Ideen"
+    }
+  ],
+  "kategorien_uebersicht": {
+    "Bildungssprache": 14,
+    "Briefe": 7,
+    "Spiele": 8,
+    "Kritisches Denken": 6,
+    "Diskussion": 1,
+    "Lernen": 2,
+    "Schule": 10,
+    "Geschichte": 3,
+    "Textanalyse": 10,
+    "Prüfungsvorbereitung": 6,
+    "Sokratische Methode": 10,
+    "Studium": 7,
+    "Feynman-Methode": 7,
+    "Fragetechniken": 5,
+    "Textverbesserung": 9,
+    "Prompting": 1,
+    "Recherche": 1
+  },
+  "artikel_quellen": [
+    {"id": 88251, "titel": "Bildungssprache lernen mit KI – 10 Methoden"},
+    {"id": 85908, "titel": "Briefe auf Papier – und wie KI dir dabei helfen kann"},
+    {"id": 83280, "titel": "Spielen mit KI – von Textadventures bis zu selbstgebauten Games"},
+    {"id": 81536, "titel": "So hilft dir KI im Alltag – 21 praktische Tipps"},
+    {"id": 86156, "titel": "Kritisches Denken trainieren – 15 Techniken"},
+    {"id": 90212, "titel": "Diskussionen gewinnen mit ChatGPT"},
+    {"id": 84606, "titel": "Multiple-Choice-Tests mit ChatGPT selbst erstellen"},
+    {"id": 91761, "titel": "9 KI-Prompts für Schüler"},
+    {"id": 81361, "titel": "Geschichte live erleben"},
+    {"id": 84057, "titel": "Texte analysieren mit KI: 7 Prompts für echtes Verstehen"},
+    {"id": 91347, "titel": "Wie du deine Bildungssprache in 14 Tagen um 50% verbesserst"},
+    {"id": 84645, "titel": "Multiple-Choice-Fragen meistern: 10 Techniken + KI-Prompts"},
+    {"id": 86110, "titel": "Sokratische Methode trifft KI: 15 smarte Lernhacks"},
+    {"id": 91708, "titel": "KI-Prompts für Studierende"},
+    {"id": 82281, "titel": "ChatGPT – 15 praktische Tipps"},
+    {"id": 86360, "titel": "Lerne wie ein Genie: die Feynman-Methode in 15 Hacks"},
+    {"id": 82497, "titel": "ChatGPT – Wie man einer KI die richtigen Fragen stellt"},
+    {"id": 81366, "titel": "Wie ChatGPT deine Texte zum Glänzen bringen kann – 29 Ideen"}
+  ]
+}
