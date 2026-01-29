@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rosa Farbtester</title>
+    <meta name="description" content="Teste und vergleiche Farben mit dem Rosa Farbtester">
+    <meta name="theme-color" content="#db2777">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --pink-50: #fdf2f8;
+            --pink-100: #fce7f3;
+            --pink-200: #fbcfe8;
+            --pink-300: #f9a8d4;
+            --pink-400: #f472b6;
+            --pink-500: #ec4899;
+            --pink-600: #db2777;
+            --pink-700: #be185d;
+            --pink-800: #9d174d;
+            --pink-900: #831843;
+            --white: #ffffff;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-500: #6b7280;
+            --gray-700: #374151;
+            --gray-900: #111827;
+            --radius: 12px;
+            --shadow: 0 4px 16px rgba(219, 39, 119, 0.15);
+            --shadow-lg: 0 8px 32px rgba(219, 39, 119, 0.2);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, var(--pink-50) 0%, var(--white) 50%, var(--pink-100) 100%);
+            min-height: 100vh;
+            color: var(--gray-900);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--pink-600), var(--pink-700));
+            color: var(--white);
+            padding: 1.5rem 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+        }
+
+        header h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-top: 0.25rem;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card h2 {
+            font-size: 1.15rem;
+            color: var(--pink-700);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Color Picker Section */
+        .color-pickers {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .picker-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--gray-700);
+            margin-bottom: 0.5rem;
+        }
+
+        .picker-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        input[type="color"] {
+            width: 56px;
+            height: 56px;
+            border: 3px solid var(--pink-200);
+            border-radius: 10px;
+            cursor: pointer;
+            padding: 2px;
+            background: var(--white);
+            transition: border-color 0.2s;
+        }
+
+        input[type="color"]:hover {
+            border-color: var(--pink-400);
+        }
+
+        .color-info {
+            font-size: 0.85rem;
+            color: var(--gray-700);
+        }
+
+        .color-info .hex {
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-weight: 700;
+            font-size: 1rem;
+            display: block;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .color-info .hex:hover {
+            color: var(--pink-600);
+        }
+
+        .color-info .rgb {
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.8rem;
+            color: var(--gray-500);
+        }
+
+        /* Preview Section */
+        .preview-area {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .preview-box {
+            height: 120px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+            border: 2px solid var(--gray-200);
+        }
+
+        .preview-combined {
+            height: 160px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid var(--gray-200);
+            padding: 1rem;
+        }
+
+        .preview-combined .sample-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .preview-combined .small-text {
+            font-size: 0.85rem;
+            font-weight: 400;
+        }
+
+        /* Contrast Section */
+        .contrast-result {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .contrast-ratio {
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--pink-700);
+        }
+
+        .contrast-badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            padding: 0.3rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .badge-pass {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .badge-fail {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        /* Palette Section */
+        .palette-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 0.75rem;
+        }
+
+        .palette-swatch {
+            aspect-ratio: 1;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 0.4rem;
+            border: 2px solid var(--gray-200);
+        }
+
+        .palette-swatch:hover {
+            transform: scale(1.08);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .palette-swatch span {
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.6rem;
+            font-weight: 700;
+            padding: 0.15rem 0.35rem;
+            border-radius: 4px;
+            background: rgba(255,255,255,0.85);
+            color: var(--gray-900);
+        }
+
+        /* Saved Colors */
+        .saved-colors {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            min-height: 40px;
+        }
+
+        .saved-color {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            border: 2px solid var(--gray-200);
+            position: relative;
+        }
+
+        .saved-color:hover {
+            transform: scale(1.15);
+        }
+
+        .saved-color .remove {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            width: 16px;
+            height: 16px;
+            background: var(--pink-600);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 10px;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        .saved-color:hover .remove {
+            display: flex;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-pink {
+            background: var(--pink-600);
+            color: var(--white);
+        }
+
+        .btn-pink:hover {
+            background: var(--pink-700);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--pink-600);
+            border: 2px solid var(--pink-200);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--pink-400);
+            background: var(--pink-50);
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .empty-state {
+            color: var(--gray-500);
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--pink-700);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: var(--shadow-lg);
+            transition: transform 0.3s ease;
+            z-index: 100;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            color: var(--gray-500);
+            font-size: 0.8rem;
+        }
+
+        footer a {
+            color: var(--pink-600);
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.35rem; }
+            .color-pickers { grid-template-columns: 1fr; }
+            .preview-area { grid-template-columns: 1fr; }
+            .palette-grid { grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); }
+            .contrast-ratio { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Rosa Farbtester</h1>
+        <p>Farben testen, vergleichen &amp; Kontrast prüfen</p>
+    </header>
+
+    <main>
+        <div class="card">
+            <h2>Farbwahl</h2>
+            <div class="color-pickers">
+                <div class="picker-group">
+                    <label>Farbe 1 (Vordergrund)</label>
+                    <div class="picker-row">
+                        <input type="color" id="color1" value="#db2777">
+                        <div class="color-info">
+                            <span class="hex" id="hex1" title="Klicken zum Kopieren">#db2777</span>
+                            <span class="rgb" id="rgb1">rgb(219, 39, 119)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="picker-group">
+                    <label>Farbe 2 (Hintergrund)</label>
+                    <div class="picker-row">
+                        <input type="color" id="color2" value="#ffffff">
+                        <div class="color-info">
+                            <span class="hex" id="hex2" title="Klicken zum Kopieren">#ffffff</span>
+                            <span class="rgb" id="rgb2">rgb(255, 255, 255)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-row">
+                <button class="btn btn-outline" id="swapBtn">Farben tauschen</button>
+                <button class="btn btn-outline" id="randomBtn">Zufallsfarbe</button>
+                <button class="btn btn-pink" id="saveBtn">Farbe 1 speichern</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Vorschau</h2>
+            <div class="preview-area">
+                <div class="preview-box" id="previewBox1">Farbe 1</div>
+                <div class="preview-box" id="previewBox2">Farbe 2</div>
+            </div>
+            <div class="preview-combined" id="previewCombined">
+                <span class="sample-text">Beispieltext</span>
+                <span class="small-text">So sieht Text in dieser Farbkombination aus</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Kontrastprüfung (WCAG)</h2>
+            <div class="contrast-result">
+                <span class="contrast-ratio" id="contrastValue">4.5:1</span>
+                <div class="contrast-badges" id="contrastBadges">
+                    <span class="badge badge-pass">AA Normal</span>
+                    <span class="badge badge-fail">AAA Normal</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Farbpalette (Abstufungen von Farbe 1)</h2>
+            <div class="palette-grid" id="paletteGrid"></div>
+        </div>
+
+        <div class="card">
+            <h2>Gespeicherte Farben</h2>
+            <div class="saved-colors" id="savedColors">
+                <span class="empty-state">Noch keine Farben gespeichert</span>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Rosa Farbtester &mdash; Eine PWA von <a href="https://bildungssprache.net" target="_blank" rel="noopener">bildungssprache.net</a></p>
+    </footer>
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+        const color1Input = document.getElementById('color1');
+        const color2Input = document.getElementById('color2');
+        const hex1 = document.getElementById('hex1');
+        const hex2 = document.getElementById('hex2');
+        const rgb1 = document.getElementById('rgb1');
+        const rgb2 = document.getElementById('rgb2');
+        const previewBox1 = document.getElementById('previewBox1');
+        const previewBox2 = document.getElementById('previewBox2');
+        const previewCombined = document.getElementById('previewCombined');
+        const contrastValue = document.getElementById('contrastValue');
+        const contrastBadges = document.getElementById('contrastBadges');
+        const paletteGrid = document.getElementById('paletteGrid');
+        const savedColorsEl = document.getElementById('savedColors');
+        const toast = document.getElementById('toast');
+
+        let savedColors = JSON.parse(localStorage.getItem('farbtester-saved') || '[]');
+
+        function hexToRgb(hex) {
+            const r = parseInt(hex.slice(1, 3), 16);
+            const g = parseInt(hex.slice(3, 5), 16);
+            const b = parseInt(hex.slice(5, 7), 16);
+            return { r, g, b };
+        }
+
+        function rgbToHex(r, g, b) {
+            return '#' + [r, g, b].map(x => x.toString(16).padStart(2, '0')).join('');
+        }
+
+        function luminance(r, g, b) {
+            const [rs, gs, bs] = [r, g, b].map(c => {
+                c = c / 255;
+                return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+            });
+            return 0.2126 * rs + 0.7152 * gs + 0.0722 * bs;
+        }
+
+        function contrastRatio(hex1, hex2) {
+            const c1 = hexToRgb(hex1);
+            const c2 = hexToRgb(hex2);
+            const l1 = luminance(c1.r, c1.g, c1.b);
+            const l2 = luminance(c2.r, c2.g, c2.b);
+            const lighter = Math.max(l1, l2);
+            const darker = Math.min(l1, l2);
+            return (lighter + 0.05) / (darker + 0.05);
+        }
+
+        function textColorFor(hex) {
+            const { r, g, b } = hexToRgb(hex);
+            return luminance(r, g, b) > 0.179 ? '#111827' : '#ffffff';
+        }
+
+        function generatePalette(hex) {
+            const { r, g, b } = hexToRgb(hex);
+            const shades = [];
+            for (let i = 0; i <= 10; i++) {
+                const factor = i / 10;
+                const sr = Math.round(255 - (255 - r) * factor);
+                const sg = Math.round(255 - (255 - g) * factor);
+                const sb = Math.round(255 - (255 - b) * factor);
+                shades.push(rgbToHex(
+                    Math.max(0, Math.min(255, sr)),
+                    Math.max(0, Math.min(255, sg)),
+                    Math.max(0, Math.min(255, sb))
+                ));
+            }
+            return shades;
+        }
+
+        function showToast(msg) {
+            toast.textContent = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2000);
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast('Kopiert: ' + text);
+            });
+        }
+
+        function updateUI() {
+            const c1 = color1Input.value;
+            const c2 = color2Input.value;
+            const rgb1Val = hexToRgb(c1);
+            const rgb2Val = hexToRgb(c2);
+
+            hex1.textContent = c1;
+            hex2.textContent = c2;
+            rgb1.textContent = `rgb(${rgb1Val.r}, ${rgb1Val.g}, ${rgb1Val.b})`;
+            rgb2.textContent = `rgb(${rgb2Val.r}, ${rgb2Val.g}, ${rgb2Val.b})`;
+
+            previewBox1.style.backgroundColor = c1;
+            previewBox1.style.color = textColorFor(c1);
+            previewBox2.style.backgroundColor = c2;
+            previewBox2.style.color = textColorFor(c2);
+
+            previewCombined.style.backgroundColor = c2;
+            previewCombined.style.color = c1;
+
+            const ratio = contrastRatio(c1, c2);
+            contrastValue.textContent = ratio.toFixed(2) + ':1';
+
+            const aaLarge = ratio >= 3;
+            const aaNormal = ratio >= 4.5;
+            const aaaLarge = ratio >= 4.5;
+            const aaaNormal = ratio >= 7;
+
+            contrastBadges.innerHTML = `
+                <span class="badge ${aaNormal ? 'badge-pass' : 'badge-fail'}">AA Normal ${aaNormal ? '\u2713' : '\u2717'}</span>
+                <span class="badge ${aaLarge ? 'badge-pass' : 'badge-fail'}">AA Gross ${aaLarge ? '\u2713' : '\u2717'}</span>
+                <span class="badge ${aaaNormal ? 'badge-pass' : 'badge-fail'}">AAA Normal ${aaaNormal ? '\u2713' : '\u2717'}</span>
+                <span class="badge ${aaaLarge ? 'badge-pass' : 'badge-fail'}">AAA Gross ${aaaLarge ? '\u2713' : '\u2717'}</span>
+            `;
+
+            const palette = generatePalette(c1);
+            paletteGrid.innerHTML = palette.map(color => `
+                <div class="palette-swatch" style="background:${color}" title="${color}" data-color="${color}">
+                    <span>${color}</span>
+                </div>
+            `).join('');
+
+            renderSavedColors();
+        }
+
+        function renderSavedColors() {
+            if (savedColors.length === 0) {
+                savedColorsEl.innerHTML = '<span class="empty-state">Noch keine Farben gespeichert</span>';
+                return;
+            }
+            savedColorsEl.innerHTML = savedColors.map((color, i) => `
+                <div class="saved-color" style="background:${color}" title="${color}" data-index="${i}" data-color="${color}">
+                    <button class="remove" data-remove="${i}">&times;</button>
+                </div>
+            `).join('');
+        }
+
+        function savePersist() {
+            localStorage.setItem('farbtester-saved', JSON.stringify(savedColors));
+        }
+
+        color1Input.addEventListener('input', updateUI);
+        color2Input.addEventListener('input', updateUI);
+
+        hex1.addEventListener('click', () => copyToClipboard(color1Input.value));
+        hex2.addEventListener('click', () => copyToClipboard(color2Input.value));
+
+        document.getElementById('swapBtn').addEventListener('click', () => {
+            const tmp = color1Input.value;
+            color1Input.value = color2Input.value;
+            color2Input.value = tmp;
+            updateUI();
+        });
+
+        document.getElementById('randomBtn').addEventListener('click', () => {
+            const rand = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+            color1Input.value = rand;
+            updateUI();
+        });
+
+        document.getElementById('saveBtn').addEventListener('click', () => {
+            const c = color1Input.value;
+            if (!savedColors.includes(c)) {
+                savedColors.push(c);
+                savePersist();
+                renderSavedColors();
+                showToast('Farbe gespeichert: ' + c);
+            } else {
+                showToast('Farbe bereits gespeichert');
+            }
+        });
+
+        paletteGrid.addEventListener('click', (e) => {
+            const swatch = e.target.closest('.palette-swatch');
+            if (swatch) {
+                copyToClipboard(swatch.dataset.color);
+            }
+        });
+
+        savedColorsEl.addEventListener('click', (e) => {
+            const removeBtn = e.target.closest('[data-remove]');
+            if (removeBtn) {
+                const idx = parseInt(removeBtn.dataset.remove);
+                savedColors.splice(idx, 1);
+                savePersist();
+                renderSavedColors();
+                showToast('Farbe entfernt');
+                return;
+            }
+            const swatch = e.target.closest('.saved-color');
+            if (swatch) {
+                color1Input.value = swatch.dataset.color;
+                updateUI();
+                showToast('Farbe geladen: ' + swatch.dataset.color);
+            }
+        });
+
+        updateUI();
+
+        // Service Worker registrieren
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+                .then(reg => console.log('Service Worker registriert:', reg.scope))
+                .catch(err => console.error('Service Worker Fehler:', err));
+        }
+    </script>
+</body>
+</html>
