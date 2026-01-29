@@ -124,6 +124,31 @@
             padding: 0.5rem 0;
         }
 
+        .download-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+        }
+
+        .download-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .download-btn:disabled {
+            background: var(--text-light);
+            cursor: not-allowed;
+        }
+
         /* Cards Grid */
         .cards-grid {
             display: grid;
@@ -376,8 +401,10 @@
             }
 
             .search-input,
-            .category-select {
+            .category-select,
+            .download-btn {
                 width: 100%;
+                justify-content: center;
             }
 
             .cards-grid {
@@ -410,6 +437,14 @@
                 <select class="category-select" id="categorySelect">
                     <option value="">Alle Kategorien</option>
                 </select>
+                <button class="download-btn" id="downloadZip" title="Alle Prompts als ZIP herunterladen">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    ZIP Download
+                </button>
             </div>
             <div class="count-display" id="countDisplay">0 von 0 Prompts</div>
         </section>
@@ -610,11 +645,90 @@
             }
         }
 
+        // ZIP Download
+        const downloadZipBtn = document.getElementById('downloadZip');
+
+        function sanitizeFilename(name) {
+            return name
+                .replace(/[<>:"/\\|?*]/g, '')
+                .replace(/\s+/g, ' ')
+                .trim();
+        }
+
+        async function downloadAsZip() {
+            if (allPrompts.length === 0) return;
+
+            downloadZipBtn.disabled = true;
+            downloadZipBtn.innerHTML = `
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 6v6l4 2"></path>
+                </svg>
+                Wird erstellt...
+            `;
+
+            try {
+                const zip = new JSZip();
+
+                // Prompts nach Kategorie gruppieren
+                const grouped = {};
+                allPrompts.forEach(p => {
+                    if (!grouped[p.kategorie]) grouped[p.kategorie] = [];
+                    grouped[p.kategorie].push(p);
+                });
+
+                // Für jede Kategorie einen Ordner mit .txt-Dateien erstellen
+                Object.keys(grouped).sort().forEach(kategorie => {
+                    const folder = zip.folder(sanitizeFilename(kategorie));
+                    grouped[kategorie].forEach(prompt => {
+                        const filename = sanitizeFilename(prompt.titel) + '.txt';
+                        const content = prompt.titel + '\n'
+                            + 'Kategorie: ' + prompt.kategorie + '\n'
+                            + 'Artikel: ' + prompt.artikel_titel + '\n'
+                            + 'Quelle: https://bildungssprache.net/?p=' + prompt.artikel_id + '\n'
+                            + '\n---\n\n'
+                            + prompt.prompt;
+                        folder.file(filename, content);
+                    });
+                });
+
+                // Komplette JSON-Datei hinzufügen
+                const res = await fetch('data/prompts.json');
+                const jsonData = await res.text();
+                zip.file('prompts.json', jsonData);
+
+                // ZIP generieren und herunterladen
+                const blob = await zip.generateAsync({ type: 'blob' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'promptbibliothek-bildungssprache.zip';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            } catch (err) {
+                console.error('ZIP-Erstellung fehlgeschlagen:', err);
+                alert('ZIP-Download fehlgeschlagen. Bitte versuche es erneut.');
+            } finally {
+                downloadZipBtn.disabled = false;
+                downloadZipBtn.innerHTML = `
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    ZIP Download
+                `;
+            }
+        }
+
         // Event Listeners
         searchInput.addEventListener('input', filterPrompts);
         categorySelect.addEventListener('change', filterPrompts);
         closeModal.addEventListener('click', closeModalFn);
         copyBtn.addEventListener('click', copyToClipboard);
+        downloadZipBtn.addEventListener('click', downloadAsZip);
 
         modalOverlay.addEventListener('click', (e) => {
             if (e.target === modalOverlay) {
@@ -649,6 +763,9 @@
                 `;
             });
     </script>
+
+    <!-- JSZip Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 
     <!-- Analytics -->
     <script type="text/javascript">
