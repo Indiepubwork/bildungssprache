@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VANKI – Lernkarten mit Spaced Repetition</title>
+  <style>
+    :root {
+      --bg: #FDF8F3;
+      --bg-card: #FFFFFF;
+      --text: #2D2A26;
+      --text-muted: #7A756E;
+      --accent: #5B8FB9;
+      --accent-hover: #4A7A9F;
+      --accent-light: #E8F1F8;
+      --green: #6BAF7A;
+      --green-hover: #5A9E69;
+      --green-light: #E8F5EB;
+      --red: #D4726A;
+      --red-hover: #C4625A;
+      --red-light: #FBEAE8;
+      --shadow: 0 2px 12px rgba(45, 42, 38, 0.08);
+      --shadow-lg: 0 8px 32px rgba(45, 42, 38, 0.12);
+      --radius: 16px;
+      --radius-sm: 10px;
+      --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .app {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 24px 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--text);
+    }
+
+    .header p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Navigation */
+    .nav {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+
+    .nav button {
+      padding: 8px 18px;
+      border: 1.5px solid transparent;
+      border-radius: 24px;
+      background: var(--bg-card);
+      color: var(--text-muted);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all var(--transition);
+      box-shadow: 0 1px 4px rgba(45, 42, 38, 0.06);
+    }
+
+    .nav button:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .nav button.active {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+      box-shadow: 0 2px 8px rgba(91, 143, 185, 0.3);
+    }
+
+    /* Screens */
+    .screen {
+      display: none;
+      flex: 1;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .screen.active {
+      display: flex;
+      flex-direction: column;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Welcome Screen */
+    .welcome {
+      text-align: center;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      padding: 40px 0;
+    }
+
+    .welcome-icon {
+      font-size: 64px;
+      line-height: 1;
+    }
+
+    .welcome h2 {
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .welcome p {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 400px;
+      line-height: 1.7;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      box-shadow: 0 2px 8px rgba(91, 143, 185, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(91, 143, 185, 0.4);
+    }
+
+    .btn-green {
+      background: var(--green);
+      color: white;
+      box-shadow: 0 2px 8px rgba(107, 175, 122, 0.3);
+    }
+
+    .btn-green:hover {
+      background: var(--green-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-red {
+      background: var(--red);
+      color: white;
+      box-shadow: 0 2px 8px rgba(212, 114, 106, 0.3);
+    }
+
+    .btn-red:hover {
+      background: var(--red-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--accent);
+      border: 1.5px solid var(--accent);
+    }
+
+    .btn-outline:hover {
+      background: var(--accent-light);
+    }
+
+    .btn-small {
+      padding: 8px 16px;
+      font-size: 14px;
+    }
+
+    /* Import Screen */
+    .drop-zone {
+      border: 2px dashed #D4CFC8;
+      border-radius: var(--radius);
+      padding: 48px 24px;
+      text-align: center;
+      cursor: pointer;
+      transition: all var(--transition);
+      background: var(--bg-card);
+      position: relative;
+    }
+
+    .drop-zone:hover,
+    .drop-zone.dragover {
+      border-color: var(--accent);
+      background: var(--accent-light);
+    }
+
+    .drop-zone-icon {
+      font-size: 48px;
+      margin-bottom: 12px;
+    }
+
+    .drop-zone p {
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+
+    .drop-zone p strong {
+      color: var(--accent);
+    }
+
+    .drop-zone input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .format-hint {
+      margin-top: 16px;
+      padding: 14px 18px;
+      background: var(--accent-light);
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .format-hint code {
+      background: rgba(91, 143, 185, 0.15);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+
+    /* Preview Table */
+    .preview {
+      margin-top: 24px;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .preview h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .preview-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--bg-card);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .preview-table th,
+    .preview-table td {
+      padding: 10px 14px;
+      text-align: left;
+      font-size: 14px;
+      border-bottom: 1px solid #F0ECE6;
+    }
+
+    .preview-table th {
+      background: var(--accent-light);
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .preview-table td {
+      color: var(--text);
+    }
+
+    .preview-info {
+      margin-top: 12px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .preview-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    /* Flashcard */
+    .study-progress {
+      text-align: center;
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .progress-bar-container {
+      width: 100%;
+      height: 6px;
+      background: #E8E4DE;
+      border-radius: 3px;
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 3px;
+      transition: width 0.4s ease;
+    }
+
+    .card-container {
+      perspective: 1000px;
+      margin-bottom: 24px;
+      cursor: pointer;
+    }
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      min-height: 280px;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+    }
+
+    .card-inner.flipped {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 28px;
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      font-size: 20px;
+      line-height: 1.6;
+      text-align: center;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+      background: linear-gradient(135deg, #FFFFFF 0%, #F8F4EF 100%);
+    }
+
+    .card-label {
+      position: absolute;
+      top: 14px;
+      left: 18px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      opacity: 0.6;
+    }
+
+    .card-hint {
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      opacity: 0.7;
+    }
+
+    .answer-buttons {
+      display: flex;
+      gap: 12px;
+    }
+
+    .answer-buttons .btn {
+      flex: 1;
+      padding: 16px;
+      font-size: 16px;
+    }
+
+    /* Done Screen */
+    .done-screen {
+      text-align: center;
+      padding: 60px 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .done-icon {
+      font-size: 64px;
+    }
+
+    .done-screen h2 {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .done-screen p {
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+
+    .done-stats {
+      display: flex;
+      gap: 24px;
+      margin: 16px 0;
+    }
+
+    .done-stat {
+      text-align: center;
+    }
+
+    .done-stat-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .done-stat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Stats Screen */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .stat-value {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .stat-card.full-width {
+      grid-column: 1 / -1;
+    }
+
+    /* Settings / Export Screen */
+    .settings-section {
+      background: var(--bg-card);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      box-shadow: var(--shadow);
+      margin-bottom: 16px;
+    }
+
+    .settings-section h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .settings-section p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .danger-zone {
+      border: 1.5px solid var(--red);
+    }
+
+    .danger-zone h3 {
+      color: var(--red);
+    }
+
+    /* Home screen - due cards */
+    .home-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+      padding: 40px 0;
+    }
+
+    .home-icon {
+      font-size: 48px;
+    }
+
+    .home-content h2 {
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .home-content p {
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    .due-count {
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    /* Toast notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--text);
+      color: white;
+      padding: 12px 24px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 500;
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 100;
+      white-space: nowrap;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* Confirm dialog */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(45, 42, 38, 0.5);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-box {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      padding: 28px;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+    }
+
+    .modal-box h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .modal-box p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .app {
+        padding: 16px 14px;
+      }
+
+      .header h1 {
+        font-size: 24px;
+      }
+
+      .card-face {
+        font-size: 18px;
+        padding: 24px 20px;
+        min-height: 240px;
+      }
+
+      .card-inner {
+        min-height: 240px;
+      }
+
+      .answer-buttons .btn {
+        padding: 14px;
+        font-size: 15px;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .stat-value {
+        font-size: 26px;
+      }
+
+      .drop-zone {
+        padding: 36px 18px;
+      }
+
+      .done-stats {
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1>VANKI</h1>
+      <p>Lernkarten mit Spaced Repetition</p>
+    </header>
+
+    <nav class="nav" id="nav">
+      <button data-screen="home" class="active">Lernen</button>
+      <button data-screen="import">Import</button>
+      <button data-screen="stats">Statistik</button>
+      <button data-screen="settings">Export</button>
+    </nav>
+
+    <!-- Home / Start Screen -->
+    <section class="screen active" id="screen-home">
+      <div class="home-content" id="home-content">
+        <!-- Filled dynamically -->
+      </div>
+    </section>
+
+    <!-- Welcome Screen (first visit) -->
+    <section class="screen" id="screen-welcome">
+      <div class="welcome">
+        <div class="welcome-icon">&#x1F4DA;</div>
+        <h2>Willkommen bei VANKI</h2>
+        <p>Lerne effektiver mit Karteikarten und Spaced Repetition. Importiere deine Karten als CSV und starte sofort.</p>
+        <button class="btn btn-primary" onclick="showScreen('import')">CSV importieren</button>
+      </div>
+    </section>
+
+    <!-- Import Screen -->
+    <section class="screen" id="screen-import">
+      <div class="drop-zone" id="drop-zone">
+        <input type="file" id="file-input" accept=".csv,.txt">
+        <div class="drop-zone-icon">&#x1F4C4;</div>
+        <p><strong>CSV-Datei hierher ziehen</strong><br>oder klicken zum Auswählen</p>
+      </div>
+      <div class="format-hint">
+        <strong>Format:</strong> Eine Karte pro Zeile, Vorder- und Rückseite getrennt durch Semikolon.<br>
+        <code>Vorderseite;Rückseite</code><br>
+        Zeichenkodierung: UTF-8
+      </div>
+      <div class="preview" id="preview" style="display:none;">
+        <h3>Vorschau</h3>
+        <table class="preview-table">
+          <thead>
+            <tr><th>Vorderseite</th><th>Rückseite</th></tr>
+          </thead>
+          <tbody id="preview-body"></tbody>
+        </table>
+        <p class="preview-info" id="preview-info"></p>
+        <div class="preview-actions">
+          <button class="btn btn-primary" id="import-btn" onclick="confirmImport()">Importieren</button>
+          <button class="btn btn-outline" onclick="cancelImport()">Abbrechen</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Study Screen -->
+    <section class="screen" id="screen-study">
+      <div class="study-progress" id="study-progress">Karte 1 von 20</div>
+      <div class="progress-bar-container">
+        <div class="progress-bar" id="progress-bar" style="width: 0%"></div>
+      </div>
+      <div class="card-container" id="card-container" onclick="flipCard()" role="button" tabindex="0" aria-label="Karte umdrehen">
+        <div class="card-inner" id="card-inner">
+          <div class="card-face card-front">
+            <span class="card-label">Vorderseite</span>
+            <div id="card-front-text"></div>
+          </div>
+          <div class="card-face card-back">
+            <span class="card-label">Rückseite</span>
+            <div id="card-back-text"></div>
+          </div>
+        </div>
+      </div>
+      <div class="card-hint" id="card-hint">Klicken oder Leertaste zum Umdrehen</div>
+      <div class="answer-buttons" id="answer-buttons" style="display:none;">
+        <button class="btn btn-red" onclick="answerCard(false)">Nochmal</button>
+        <button class="btn btn-green" onclick="answerCard(true)">Gewusst</button>
+      </div>
+    </section>
+
+    <!-- Done Screen -->
+    <section class="screen" id="screen-done">
+      <div class="done-screen">
+        <div class="done-icon">&#x1F389;</div>
+        <h2>Geschafft!</h2>
+        <p>Du hast alle fälligen Karten für heute gelernt.</p>
+        <div class="done-stats">
+          <div class="done-stat">
+            <div class="done-stat-value" id="done-correct">0</div>
+            <div class="done-stat-label">Gewusst</div>
+          </div>
+          <div class="done-stat">
+            <div class="done-stat-value" id="done-wrong">0</div>
+            <div class="done-stat-label">Nochmal</div>
+          </div>
+        </div>
+        <button class="btn btn-primary" onclick="showScreen('home')">Zurück</button>
+      </div>
+    </section>
+
+    <!-- Stats Screen -->
+    <section class="screen" id="screen-stats">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value" id="stat-today">0</div>
+          <div class="stat-label">Heute gelernt</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="stat-streak">0</div>
+          <div class="stat-label">Tage Streak</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="stat-total">0</div>
+          <div class="stat-label">Karten gesamt</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="stat-due">0</div>
+          <div class="stat-label">Heute fällig</div>
+        </div>
+        <div class="stat-card full-width">
+          <div class="stat-value" id="stat-reviews">0</div>
+          <div class="stat-label">Wiederholungen gesamt</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Settings / Export Screen -->
+    <section class="screen" id="screen-settings">
+      <div class="settings-section">
+        <h3>CSV Export</h3>
+        <p>Exportiere alle Karten als CSV-Datei (Semikolon-getrennt). Dein Lernfortschritt bleibt im Browser gespeichert.</p>
+        <button class="btn btn-primary btn-small" onclick="exportCSV()">Karten exportieren</button>
+      </div>
+      <div class="settings-section">
+        <h3>CSV Import</h3>
+        <p>Weitere Karten zu deinem Deck hinzufügen.</p>
+        <button class="btn btn-outline btn-small" onclick="showScreen('import')">Karten importieren</button>
+      </div>
+      <div class="settings-section danger-zone">
+        <h3>Alle Daten löschen</h3>
+        <p>Löscht alle Karten und deinen gesamten Lernfortschritt. Diese Aktion kann nicht rückgängig gemacht werden.</p>
+        <button class="btn btn-red btn-small" onclick="showDeleteConfirm()">Alles löschen</button>
+      </div>
+    </section>
+  </div>
+
+  <!-- Confirm Dialog -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-box">
+      <h3 id="modal-title">Bist du sicher?</h3>
+      <p id="modal-text">Alle Karten und Lernfortschritte werden unwiderruflich gelöscht.</p>
+      <div class="modal-actions">
+        <button class="btn btn-outline btn-small" onclick="closeModal()">Abbrechen</button>
+        <button class="btn btn-red btn-small" id="modal-confirm">Löschen</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // ==================== State ====================
+    const STORAGE_KEY = 'vanki_data';
+
+    let state = {
+      cards: [],
+      stats: {
+        streak: 0,
+        lastStudy: null,
+        totalReviews: 0,
+        todayReviews: 0,
+        todayDate: null
+      }
+    };
+
+    let pendingCards = []; // Cards parsed from CSV, awaiting confirmation
+    let sessionCards = []; // Cards for current study session
+    let sessionIndex = 0;
+    let sessionCorrect = 0;
+    let sessionWrong = 0;
+    let isFlipped = false;
+
+    // ==================== Persistence ====================
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          state.cards = parsed.cards || [];
+          state.stats = { ...state.stats, ...parsed.stats };
+        }
+      } catch (e) {
+        console.error('Failed to load state:', e);
+      }
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      } catch (e) {
+        console.error('Failed to save state:', e);
+      }
+    }
+
+    // ==================== Utility ====================
+    function todayISO() {
+      return new Date().toISOString().split('T')[0];
+    }
+
+    function generateId() {
+      return crypto.randomUUID ? crypto.randomUUID() :
+        'xxxx-xxxx-xxxx'.replace(/x/g, () => Math.floor(Math.random() * 16).toString(16));
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2500);
+    }
+
+    // ==================== SM-2 Algorithm ====================
+    function sm2(card, correct) {
+      const today = todayISO();
+
+      if (correct) {
+        if (card.interval === 1) {
+          card.interval = 1;
+        } else if (card.interval === 2) {
+          card.interval = 6;
+        } else {
+          card.interval = Math.ceil(card.interval * card.easeFactor);
+        }
+
+        card.easeFactor = card.easeFactor + 0.1;
+        if (card.easeFactor > 2.5) {
+          card.easeFactor = 2.5;
+        }
+
+        card.repetitions = (card.repetitions || 0) + 1;
+
+        // Advance interval for first correct: go from 1 to 2
+        if (card.interval === 1 && card.repetitions >= 1) {
+          card.interval = 2;
+        }
+      } else {
+        card.interval = 1;
+        card.easeFactor = card.easeFactor - 0.2;
+        if (card.easeFactor < 1.3) {
+          card.easeFactor = 1.3;
+        }
+        card.repetitions = 0;
+      }
+
+      const nextDate = new Date();
+      nextDate.setDate(nextDate.getDate() + card.interval);
+      card.nextReview = nextDate.toISOString().split('T')[0];
+
+      return card;
+    }
+
+    // ==================== Card Selection ====================
+    function getDueCards() {
+      const today = todayISO();
+      return state.cards.filter(c => c.nextReview && c.nextReview <= today)
+        .sort((a, b) => a.nextReview.localeCompare(b.nextReview));
+    }
+
+    function getNewCards() {
+      return state.cards.filter(c => !c.nextReview);
+    }
+
+    function buildSession() {
+      let due = getDueCards();
+      let newCards = getNewCards();
+
+      let session = [...due];
+
+      if (session.length < 20) {
+        const needed = 20 - session.length;
+        session = session.concat(newCards.slice(0, needed));
+      }
+
+      return session.slice(0, 50);
+    }
+
+    // ==================== Screen Navigation ====================
+    function showScreen(name) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+
+      // Update nav buttons
+      document.querySelectorAll('.nav button').forEach(b => b.classList.remove('active'));
+
+      if (name === 'welcome') {
+        document.getElementById('screen-welcome').classList.add('active');
+        return;
+      }
+
+      if (name === 'study') {
+        document.getElementById('screen-study').classList.add('active');
+        document.querySelector('.nav button[data-screen="home"]').classList.add('active');
+        return;
+      }
+
+      if (name === 'done') {
+        document.getElementById('screen-done').classList.add('active');
+        document.querySelector('.nav button[data-screen="home"]').classList.add('active');
+        return;
+      }
+
+      const screenEl = document.getElementById('screen-' + name);
+      if (screenEl) {
+        screenEl.classList.add('active');
+      }
+
+      const navBtn = document.querySelector(`.nav button[data-screen="${name}"]`);
+      if (navBtn) navBtn.classList.add('active');
+
+      if (name === 'home') renderHome();
+      if (name === 'stats') renderStats();
+    }
+
+    // ==================== Navigation Setup ====================
+    function setupNav() {
+      document.querySelectorAll('.nav button').forEach(btn => {
+        btn.addEventListener('click', () => {
+          showScreen(btn.dataset.screen);
+        });
+      });
+    }
+
+    // ==================== Home Screen ====================
+    function renderHome() {
+      const container = document.getElementById('home-content');
+      const dueCount = getDueCards().length;
+      const newCount = getNewCards().length;
+      const totalSession = buildSession().length;
+
+      if (state.cards.length === 0) {
+        showScreen('welcome');
+        return;
+      }
+
+      if (totalSession === 0) {
+        container.innerHTML = `
+          <div class="home-icon">&#x2705;</div>
+          <h2>Alles erledigt!</h2>
+          <p>Keine Karten fällig. Komm später wieder oder importiere neue Karten.</p>
+          <button class="btn btn-outline" onclick="showScreen('import')">Karten importieren</button>
+        `;
+      } else {
+        container.innerHTML = `
+          <div class="home-icon">&#x1F4DA;</div>
+          <div class="due-count">${totalSession}</div>
+          <h2>Karten warten auf dich</h2>
+          <p>${dueCount} fällige + ${Math.min(newCount, Math.max(0, 20 - dueCount))} neue Karten</p>
+          <button class="btn btn-primary" onclick="startStudy()">Lernen starten</button>
+        `;
+      }
+    }
+
+    // ==================== Study Mode ====================
+    function startStudy() {
+      sessionCards = buildSession();
+      if (sessionCards.length === 0) {
+        showScreen('home');
+        return;
+      }
+      sessionIndex = 0;
+      sessionCorrect = 0;
+      sessionWrong = 0;
+      isFlipped = false;
+      showScreen('study');
+      renderCard();
+    }
+
+    function renderCard() {
+      if (sessionIndex >= sessionCards.length) {
+        finishSession();
+        return;
+      }
+
+      const card = sessionCards[sessionIndex];
+      document.getElementById('card-front-text').textContent = card.front;
+      document.getElementById('card-back-text').textContent = card.back;
+      document.getElementById('study-progress').textContent =
+        `Karte ${sessionIndex + 1} von ${sessionCards.length}`;
+
+      const pct = (sessionIndex / sessionCards.length) * 100;
+      document.getElementById('progress-bar').style.width = pct + '%';
+
+      // Reset flip
+      isFlipped = false;
+      document.getElementById('card-inner').classList.remove('flipped');
+      document.getElementById('card-hint').style.display = 'block';
+      document.getElementById('answer-buttons').style.display = 'none';
+    }
+
+    function flipCard() {
+      if (isFlipped) return;
+      isFlipped = true;
+      document.getElementById('card-inner').classList.add('flipped');
+      document.getElementById('card-hint').style.display = 'none';
+      document.getElementById('answer-buttons').style.display = 'flex';
+    }
+
+    function answerCard(correct) {
+      const card = sessionCards[sessionIndex];
+
+      // Find the card in state.cards and update it
+      const stateCard = state.cards.find(c => c.id === card.id);
+      if (stateCard) {
+        sm2(stateCard, correct);
+      }
+
+      // Update stats
+      const today = todayISO();
+      if (state.stats.todayDate !== today) {
+        state.stats.todayDate = today;
+        state.stats.todayReviews = 0;
+      }
+      state.stats.todayReviews++;
+      state.stats.totalReviews++;
+
+      // Update streak
+      updateStreak();
+
+      if (correct) {
+        sessionCorrect++;
+      } else {
+        sessionWrong++;
+        // Re-add card near the end for another attempt
+        if (sessionCards.length < 100) { // safety limit
+          sessionCards.push({ ...card });
+        }
+      }
+
+      saveState();
+
+      sessionIndex++;
+      renderCard();
+    }
+
+    function updateStreak() {
+      const today = todayISO();
+      const yesterday = new Date();
+      yesterday.setDate(yesterday.getDate() - 1);
+      const yesterdayISO = yesterday.toISOString().split('T')[0];
+
+      if (state.stats.lastStudy === today) {
+        // Already studied today, streak unchanged
+        return;
+      } else if (state.stats.lastStudy === yesterdayISO) {
+        // Studied yesterday, increment streak
+        state.stats.streak++;
+      } else if (!state.stats.lastStudy) {
+        // First time
+        state.stats.streak = 1;
+      } else {
+        // Missed a day, reset streak
+        state.stats.streak = 1;
+      }
+      state.stats.lastStudy = today;
+    }
+
+    function finishSession() {
+      document.getElementById('done-correct').textContent = sessionCorrect;
+      document.getElementById('done-wrong').textContent = sessionWrong;
+      document.getElementById('progress-bar').style.width = '100%';
+      showScreen('done');
+    }
+
+    // ==================== CSV Import ====================
+    function parseCSV(text) {
+      const lines = text.split(/\r?\n/).filter(l => l.trim().length > 0);
+      const cards = [];
+
+      for (const line of lines) {
+        const parts = line.split(';');
+        if (parts.length >= 2) {
+          const front = parts[0].trim();
+          const back = parts.slice(1).join(';').trim(); // Handle semicolons in the back text
+          if (front && back) {
+            cards.push({ front, back });
+          }
+        }
+      }
+
+      return cards;
+    }
+
+    function handleFile(file) {
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const text = e.target.result;
+        pendingCards = parseCSV(text);
+
+        if (pendingCards.length === 0) {
+          showToast('Keine gültigen Karten gefunden');
+          return;
+        }
+
+        // Show preview
+        const tbody = document.getElementById('preview-body');
+        tbody.innerHTML = '';
+
+        const previewCount = Math.min(5, pendingCards.length);
+        for (let i = 0; i < previewCount; i++) {
+          const tr = document.createElement('tr');
+          const tdFront = document.createElement('td');
+          const tdBack = document.createElement('td');
+          tdFront.textContent = pendingCards[i].front;
+          tdBack.textContent = pendingCards[i].back;
+          tr.appendChild(tdFront);
+          tr.appendChild(tdBack);
+          tbody.appendChild(tr);
+        }
+
+        document.getElementById('preview-info').textContent =
+          `${pendingCards.length} Karten erkannt` +
+          (pendingCards.length > 5 ? ` (${pendingCards.length - 5} weitere nicht angezeigt)` : '');
+
+        document.getElementById('preview').style.display = 'block';
+      };
+
+      reader.readAsText(file, 'UTF-8');
+    }
+
+    function confirmImport() {
+      const today = todayISO();
+
+      for (const pc of pendingCards) {
+        state.cards.push({
+          id: generateId(),
+          front: pc.front,
+          back: pc.back,
+          interval: 1,
+          easeFactor: 2.5,
+          nextReview: null, // null = new card, never studied
+          repetitions: 0,
+          created: today
+        });
+      }
+
+      saveState();
+      showToast(`${pendingCards.length} Karten importiert`);
+      pendingCards = [];
+      document.getElementById('preview').style.display = 'none';
+
+      // Reset file input
+      document.getElementById('file-input').value = '';
+
+      showScreen('home');
+    }
+
+    function cancelImport() {
+      pendingCards = [];
+      document.getElementById('preview').style.display = 'none';
+      document.getElementById('file-input').value = '';
+    }
+
+    function setupImport() {
+      const dropZone = document.getElementById('drop-zone');
+      const fileInput = document.getElementById('file-input');
+
+      fileInput.addEventListener('change', (e) => {
+        handleFile(e.target.files[0]);
+      });
+
+      dropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropZone.classList.add('dragover');
+      });
+
+      dropZone.addEventListener('dragleave', () => {
+        dropZone.classList.remove('dragover');
+      });
+
+      dropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('dragover');
+        const file = e.dataTransfer.files[0];
+        handleFile(file);
+      });
+    }
+
+    // ==================== CSV Export ====================
+    function exportCSV() {
+      if (state.cards.length === 0) {
+        showToast('Keine Karten zum Exportieren');
+        return;
+      }
+
+      const lines = state.cards.map(c => `${c.front};${c.back}`);
+      const csv = lines.join('\n');
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `vanki-export-${todayISO()}.csv`;
+      a.click();
+      URL.revokeObjectURL(url);
+
+      showToast('Export heruntergeladen');
+    }
+
+    // ==================== Delete All ====================
+    function showDeleteConfirm() {
+      document.getElementById('modal-overlay').classList.add('active');
+      document.getElementById('modal-confirm').onclick = function() {
+        state.cards = [];
+        state.stats = {
+          streak: 0,
+          lastStudy: null,
+          totalReviews: 0,
+          todayReviews: 0,
+          todayDate: null
+        };
+        saveState();
+        closeModal();
+        showToast('Alle Daten gelöscht');
+        showScreen('home');
+      };
+    }
+
+    function closeModal() {
+      document.getElementById('modal-overlay').classList.remove('active');
+    }
+
+    // ==================== Stats Screen ====================
+    function renderStats() {
+      const today = todayISO();
+      const todayReviews = state.stats.todayDate === today ? state.stats.todayReviews : 0;
+
+      document.getElementById('stat-today').textContent = todayReviews;
+      document.getElementById('stat-streak').textContent = state.stats.streak;
+      document.getElementById('stat-total').textContent = state.cards.length;
+      document.getElementById('stat-due').textContent = getDueCards().length + getNewCards().length;
+      document.getElementById('stat-reviews').textContent = state.stats.totalReviews;
+    }
+
+    // ==================== Keyboard Controls ====================
+    function setupKeyboard() {
+      document.addEventListener('keydown', (e) => {
+        // Only handle keys when study screen is active
+        const studyScreen = document.getElementById('screen-study');
+        if (!studyScreen.classList.contains('active')) return;
+
+        if (e.code === 'Space' || e.code === 'Enter') {
+          e.preventDefault();
+          if (!isFlipped) {
+            flipCard();
+          }
+        }
+
+        if (isFlipped) {
+          if (e.code === 'ArrowLeft' || e.code === 'Digit1') {
+            e.preventDefault();
+            answerCard(false); // Nochmal
+          }
+          if (e.code === 'ArrowRight' || e.code === 'Digit2') {
+            e.preventDefault();
+            answerCard(true); // Gewusst
+          }
+        }
+      });
+
+      // Close modal on Escape
+      document.addEventListener('keydown', (e) => {
+        if (e.code === 'Escape') {
+          closeModal();
+        }
+      });
+
+      // Card container keyboard support
+      document.getElementById('card-container').addEventListener('keydown', (e) => {
+        if (e.code === 'Space' || e.code === 'Enter') {
+          e.preventDefault();
+          if (!isFlipped) {
+            flipCard();
+          }
+        }
+      });
+    }
+
+    // ==================== Init ====================
+    function init() {
+      loadState();
+      setupNav();
+      setupImport();
+      setupKeyboard();
+
+      // Check today's reviews reset
+      const today = todayISO();
+      if (state.stats.todayDate !== today) {
+        state.stats.todayReviews = 0;
+        state.stats.todayDate = today;
+        saveState();
+      }
+
+      // Decide initial screen
+      if (state.cards.length === 0) {
+        showScreen('welcome');
+      } else {
+        showScreen('home');
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>
