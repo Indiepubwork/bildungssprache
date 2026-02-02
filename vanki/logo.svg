@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160" width="200" height="160">
+  <!-- Outer green swoosh/leaf shape -->
+  <ellipse cx="90" cy="85" rx="82" ry="68" fill="none" stroke="#9EBF82" stroke-width="6" transform="rotate(-5 90 85)"/>
+  <!-- Green arrow swoosh at bottom -->
+  <path d="M20 110 Q50 135 95 120 Q140 105 155 65" fill="none" stroke="#9EBF82" stroke-width="7" stroke-linecap="round"/>
+  <!-- Arrow head -->
+  <polygon points="155,55 165,68 150,72" fill="#9EBF82"/>
+  <!-- Blue dome/arc background -->
+  <path d="M40 85 Q45 30 100 28 Q155 30 155 85 Z" fill="#7BA3C4" opacity="0.85"/>
+  <!-- White V shape / chart line -->
+  <path d="M50 70 L72 95 L90 55 L108 80 L130 45 L150 75" fill="none" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Text "anki" -->
+  <text x="98" y="147" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="700" fill="#7BA3C4" letter-spacing="-1">anki</text>
+  <!-- Stylized V in green -->
+  <text x="62" y="148" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="700" fill="#6B9E7E" letter-spacing="-1">V</text>
+  <!-- Light bulb above the i -->
+  <circle cx="168" cy="118" r="8" fill="#E0A23A"/>
+  <path d="M164 126 L172 126 L170 131 L166 131 Z" fill="#E07B5D"/>
+  <!-- Bulb rays -->
+  <line x1="168" y1="108" x2="168" y2="104" stroke="#E07B5D" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="176" y1="115" x2="180" y2="113" stroke="#E07B5D" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="160" y1="115" x2="156" y2="113" stroke="#E07B5D" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="174" y1="110" x2="177" y2="107" stroke="#E07B5D" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="162" y1="110" x2="159" y2="107" stroke="#E07B5D" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
